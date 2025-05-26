@@ -43,7 +43,7 @@ public class EffectManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.K))
         {
 
             PlayScreenShakePulse(5, EffectPower.aggressive);
