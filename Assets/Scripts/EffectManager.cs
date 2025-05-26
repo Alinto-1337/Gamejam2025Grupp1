@@ -2,8 +2,12 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using System.Collections;
+using System.Collections.Generic;
+using System;
 
-public class EffectManager : MonoBehaviour
+using Random = UnityEngine.Random;
+
+public class EffectManager : Singleton<EffectManager>
 {
     [SerializeField] private Volume volume;
     [SerializeField] private GameCamera gameCamera;
@@ -14,11 +18,11 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private AnimationCurve normalPulseCurve;
     [SerializeField] private float normalPulseDuration = 1f;
 
-
-
-
     private bool isPlayingVignetteEffect = false;
     private Vignette vignette;
+
+
+    [SerializeField] private List<ScreenShakeInstance> activeScreenShakes = new List<ScreenShakeInstance>();
 
 
     public enum EffectPower
@@ -50,6 +54,8 @@ public class EffectManager : MonoBehaviour
 
             //PlayVignettePulse(0.8f, new Color(.9f, 0, 0), EffectPower.aggressive);
         }
+
+        UpdateScreenShake();
     }
 
 
@@ -65,7 +71,11 @@ public class EffectManager : MonoBehaviour
 
     public void PlayScreenShakePulse(float intensity, EffectPower power)
     {
-        StartCoroutine(PlayScreenShakePulseRoutine(intensity, power));
+        activeScreenShakes.Add(new ScreenShakeInstance(
+            intensity,
+            power == EffectPower.aggressive ? aggressivePulseDuration : normalPulseDuration,
+            power == EffectPower.aggressive ? aggressivePulseCurve : normalPulseCurve
+        ));
     }
 
     private IEnumerator PlayVignettePulseRoutine(float intensity, Color color, EffectPower power = EffectPower.aggressive)
@@ -91,28 +101,58 @@ public class EffectManager : MonoBehaviour
 
         vignette.intensity.value = 0f;
     }
-    
 
-    private IEnumerator PlayScreenShakePulseRoutine(float intensity, EffectPower power = EffectPower.aggressive)
+    [System.Serializable]
+    struct ScreenShakeInstance
     {
-        float elapsed = 0f;
+        public float startTime;
+        public float pulseDuration;
+        float intensity;
+        AnimationCurve intensityCurve;
 
-
-        AnimationCurve pulseCurve = power == EffectPower.aggressive ? aggressivePulseCurve : normalPulseCurve;
-        float pulseDuration = power == EffectPower.aggressive ? aggressivePulseDuration : normalPulseDuration;
-
-        while (elapsed < pulseDuration)
+        public ScreenShakeInstance(float intensity, float duration, AnimationCurve intensityCurve)
         {
-            float t = elapsed / pulseDuration;
-            float curveValue = pulseCurve.Evaluate(t) * intensity;
-
-            gameCamera.SetShakeOffset(Random.insideUnitCircle * curveValue);
-
-            elapsed += Time.deltaTime;
-            yield return null;
+            startTime = Time.time;
+            this.pulseDuration = duration;
+            this.intensity = intensity;
+            this.intensityCurve = intensityCurve;
         }
 
+        public float UpdateAndGetIntensity()
+        {
+            float t = (Time.time - this.startTime) / pulseDuration;
 
-        vignette.intensity.value = 0f;
+            return intensityCurve.Evaluate(t) * intensity;
+        }
+
+        public bool ShouldDie()
+        {
+            return (Time.time - this.startTime) > pulseDuration;
+        }
+    }
+
+    private void UpdateScreenShake()
+    {
+        if (activeScreenShakes.Count == 0)
+        {
+            gameCamera.SetShakeOffset(Vector2.zero);
+            return;
+        }
+
+        float resultIntensity = 0f;
+        for (int i = activeScreenShakes.Count - 1; i >= 0; i--)
+        {
+            Debug.Log(i);
+            if (activeScreenShakes[i].ShouldDie())
+            {
+                activeScreenShakes.RemoveAt(i);
+                continue;
+            }
+            resultIntensity += activeScreenShakes[i].UpdateAndGetIntensity();
+        }
+
+        Debug.Log(resultIntensity);
+
+        gameCamera.SetShakeOffset(Random.insideUnitCircle * resultIntensity);
     }
 }

@@ -18,8 +18,8 @@ public class GameCamera : MonoBehaviour
             return;
 
         Vector3 midpoint = GetMidpoint();
-        Vector3 desiredPosition = midpoint + offset + (Vector3)shakeOffset;
-        transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        Vector3 desiredPosition = midpoint + offset;
+        transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime) + (Vector3)shakeOffset;
     }
 
     private Vector3 GetMidpoint()

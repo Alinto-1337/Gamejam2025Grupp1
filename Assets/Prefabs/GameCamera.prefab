@@ -48,7 +48,7 @@ MonoBehaviour:
   targets:
   - {fileID: 0}
   - {fileID: 0}
-  smoothSpeed: 0.125
+  smoothSpeed: 2
   offset: {x: 0, y: 0, z: 0}
 --- !u!1 &9097992524232952517
 GameObject:
@@ -115,8 +115,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 100
+  near clip plane: -100
+  far clip plane: 200
   field of view: 60
   orthographic: 1
   orthographic size: 20
