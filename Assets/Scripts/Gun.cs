@@ -34,6 +34,7 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
         if (context.started)
         {
             shooting = true;
+            Debug.Log("grui");
         }
         if (context.canceled)
         {
