@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
 
     [Header("Audio")]
     [SerializeField] AudioClip [] footstepsClip;
+    [Header("Animations")]
+    [SerializeField] Animator animator;
+    [SerializeField] string walkAnimName;
+    [SerializeField] string idleAnimName;
 
     AudioSource source;
     
@@ -23,6 +27,7 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
     Vector3 vel;
 
     bool isAiming = false;
+    bool isWalking = false;
 
 
     MyInputManager.PlayerActions playerActions;
@@ -37,6 +42,11 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
         playerActions.SetCallbacks(this);
 
         source = GetComponent<AudioSource>();
+
+        if (animator != null)
+        {
+            animator.CrossFade(idleAnimName, 0.1f);
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -69,13 +79,33 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
         velocity = Vector3.SmoothDamp(velocity, moveDir, ref vel, movementSmoothing);
 
         transform.position += velocity * movementSpeed * Time.deltaTime;
+        
+        bool wasWalking = isWalking;
+        isWalking = velocity.magnitude > 0.1f;
 
+        if (isWalking != wasWalking)
+        {
+            if (isWalking)
+            {
+                if (animator != null)
+                {
+                    animator.CrossFade(walkAnimName, 0.1f);
+                }
+            }
+            else
+            {
+                if (animator != null)
+                {
+                    animator.CrossFade(idleAnimName, 0.1f);
+                }
+            }
+        }
 
         // --- Rotation
         if (isAiming)
         {
             Vector3 aimDir = WorldSpaceGursor.Instance.transform.position - transform.position;
-            aimDir.y = 0; 
+            aimDir.y = 0;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(aimDir), 0.2f);
         }
         else
