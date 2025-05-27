@@ -83,7 +83,7 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
 
                 GameObject Muzzleflash1 = Instantiate(MuzzleFlash, transform.position + Vector3.up, transform.rotation);
 
-                Muzzleflash1.transform.LookAt(transform.position + (hit.point - transform.position).normalized);
+                Muzzleflash1.transform.LookAt(transform.position + Vector3.up + (hit.point - transform.position).normalized);
 
                 EffectManager.Instance.PlayScreenShakePulse(.1f, EffectManager.EffectPower.aggressive);
 
