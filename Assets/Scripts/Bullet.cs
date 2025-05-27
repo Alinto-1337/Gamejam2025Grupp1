@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public int damage;
+
     Rigidbody rb;
 
     private void Awake()
