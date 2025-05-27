@@ -68,7 +68,7 @@ public class EnemySpawner : MonoBehaviour
     }
     IEnumerator spawnEnemyA ()
     {
-        SpawnEnemy(enemyPrefabs[0], new Vector3(Random.Range(-spawnDistanceX, spawnDistanceX), 0, Random.Range(-spawnDistanceZ, spawnDistanceZ)));
+        SpawnEnemy(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], new Vector3(Random.Range(-spawnDistanceX, spawnDistanceX), 0, Random.Range(-spawnDistanceZ, spawnDistanceZ)));
         yield return new WaitForSeconds(spawnInterval[0]);
         HandleEnemyATimer();
         StartCoroutine(spawnEnemyA());
