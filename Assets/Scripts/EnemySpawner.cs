@@ -12,7 +12,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float[] spawnInterval;
     [SerializeField] float timeConstant;
 
-    float enemyInstances;
+    [SerializeField] float enemyInstanceAmmount = 5;
+    int enemyInstances;
     private void Start()
     {
         StartCoroutine(spawnEnemyA());
@@ -53,16 +54,16 @@ public class EnemySpawner : MonoBehaviour
         spawnPoint.z = button.transform.position.z + spawning.y;
         spawnPoint *= spawnDistance;
 
-        Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
+        Instantiate(enemyPrefab, spawnPoint, Quaternion.identity).GetComponent<EnemieBehavior>().SetTarget(button.transform);
     }
 
     void HandleEnemyATimer()
     {
-        enemyInstances += 1f;
-        if (enemyInstances > 5f)
+        enemyInstances += 1;
+        if (enemyInstances > enemyInstanceAmmount)
         {
             spawnInterval[0] = spawnInterval[0] * timeConstant;
-            enemyInstances = 0f;
+            enemyInstances = 0;
         }
     }
     IEnumerator spawnEnemyA ()
