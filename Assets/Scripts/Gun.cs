@@ -15,6 +15,11 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
     [SerializeField] float reloadTime;
     float firerateS;
 
+    [Header("Audio")]
+    [SerializeField] AudioClip bass;
+    [SerializeField] AudioClip[] fire;
+    [SerializeField] AudioClip[] mech;
+
     int ammo;
 
     bool shooting = false;
@@ -25,11 +30,15 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
 
     MyInputManager.GunActions gunActions;
 
+    AudioSource source;
+
     private void Start()
     {
         gunActions = new MyInputManager().Gun;
         gunActions.Enable();
         gunActions.SetCallbacks(this);
+
+        source = GetComponent<AudioSource>();
 
         firerateS = 1 / (firerate/60);
 
@@ -72,6 +81,8 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
 
                 EffectManager.Instance.PlayScreenShakePulse(.1f, EffectManager.EffectPower.aggressive);
 
+                FireAudio();
+
                 ammo--;
 
                 ammoText.text = ammo + " / " + maxAmmo;
@@ -82,6 +93,16 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
                 }
             }
         }
+    }
+
+    void FireAudio()
+    {
+        AudioClip randFire = fire[Random.Range(0, fire.Length)];
+        AudioClip randMech = mech[Random.Range(0, mech.Length)];
+
+        source.PlayOneShot(bass);
+        source.PlayOneShot(randFire);
+        source.PlayOneShot(randMech);
     }
 
     IEnumerator Reload()
