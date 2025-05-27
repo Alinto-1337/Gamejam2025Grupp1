@@ -1,7 +1,4 @@
 using System.Collections.Generic;
-using TMPro;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,6 +6,10 @@ public class EnemieBehavior : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] int health;
+
+    [Header("Movement")]
+    [SerializeField] AnimationCurve SpeedPattern = AnimationCurve.Linear(0, 1, 0, 1);
+    [SerializeField] float walkingSpeed = 4f;
 
     [Header("Effects")]
     [SerializeField] List<GameObject> deathFxPrefabs;
@@ -30,11 +31,18 @@ public class EnemieBehavior : MonoBehaviour
 
         animator.CrossFade(walkAnimName, 0.2f);
 
+
     }
 
     void Update()
     {
         agent.SetDestination(target.position);
+
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        float t = stateInfo.normalizedTime % 1f;
+
+        agent.speed = walkingSpeed * SpeedPattern.Evaluate(t);
     }
 
     public void SetTarget(Transform target)
