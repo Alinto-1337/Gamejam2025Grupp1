@@ -56,6 +56,8 @@ public class EnemieBehavior : MonoBehaviour
             transform.LookAt(target.position);
 
             animator.CrossFade(pushButtonAnimname, 0.1f);
+
+            Invoke(nameof(Die), 0.6f);
         }
     }
 
