@@ -15,6 +15,8 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
     [SerializeField] float reloadTime;
     float firerateS;
 
+    [SerializeField] GameObject NuzzleFlash;
+
     [Header("Audio")]
     [SerializeField] AudioClip bass;
     [SerializeField] AudioClip[] fire;
@@ -78,6 +80,8 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
                 bulletInstance.transform.LookAt(bulletInstance.transform.position + bulletInstance.GetComponent<Rigidbody>().linearVelocity.normalized);
 
                 shootTimer = 0;
+
+                Instantiate(NuzzleFlash, transform.position, transform.rotation);
 
                 EffectManager.Instance.PlayScreenShakePulse(.1f, EffectManager.EffectPower.aggressive);
 
