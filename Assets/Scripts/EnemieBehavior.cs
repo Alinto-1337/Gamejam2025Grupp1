@@ -13,6 +13,7 @@ public class EnemieBehavior : MonoBehaviour
 
     [Header("Effects")]
     [SerializeField] List<GameObject> deathFxPrefabs;
+    [SerializeField] public GameObject bulletHitFxPrefab;
 
     [Header("Animations")]
     [SerializeField] Animator animator;
@@ -68,6 +69,8 @@ public class EnemieBehavior : MonoBehaviour
     public void ApplyDamage(int _dmg)
     {
         if (_dmg <= 0) return;
+
+        
 
         health -= _dmg;
         if (health <= 0)

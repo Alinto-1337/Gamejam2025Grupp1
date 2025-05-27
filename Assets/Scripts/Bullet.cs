@@ -21,13 +21,16 @@ public class Bullet : MonoBehaviour
     }
 
 
-    void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.CompareTag("Enemy"))
+        print("GAYYY");
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemieBehavior>().ApplyDamage(damage);
+            EnemieBehavior enemyBehavior = other.gameObject.GetComponent<EnemieBehavior>();
+            enemyBehavior.ApplyDamage(damage);
+            Instantiate(enemyBehavior.bulletHitFxPrefab, other.GetContact(0).point, Quaternion.identity);
         }
-
-        Destroy(gameObject, bulletDieDelay);
+        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
