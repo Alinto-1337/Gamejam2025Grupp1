@@ -487,7 +487,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3df00af384b250004ab367dd1b198724, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab0d99d7a2befe458855c28352ebf5eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1187,6 +1187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1507938381}
   - component: {fileID: 1507938382}
+  - component: {fileID: 1507938383}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -1233,6 +1234,24 @@ MonoBehaviour:
   - 5
   timeConstant: 0.9
   enemyInstanceAmmount: 5
+--- !u!114 &1507938383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507938380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b184c9c43b8edf4784fc32486ba2f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonImage: {fileID: 346416595}
+  buttonIconStages:
+  - {fileID: 21300000, guid: 3df00af384b250004ab367dd1b198724, type: 3}
+  - {fileID: 21300000, guid: ab0d99d7a2befe458855c28352ebf5eb, type: 3}
+  - {fileID: 21300000, guid: 4a75887bf46856cf89f165933d5db16d, type: 3}
+  - {fileID: 21300000, guid: d2654e494e707e74b8005af474dceee7, type: 3}
 --- !u!1 &1700447575
 GameObject:
   m_ObjectHideFlags: 0
