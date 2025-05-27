@@ -81,6 +81,8 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
 
                 shootTimer = 0;
 
+                // ----
+
                 GameObject Muzzleflash1 = Instantiate(MuzzleFlash, transform.position + Vector3.up, transform.rotation);
 
                 Muzzleflash1.transform.LookAt(transform.position + Vector3.up + (hit.point - transform.position).normalized);

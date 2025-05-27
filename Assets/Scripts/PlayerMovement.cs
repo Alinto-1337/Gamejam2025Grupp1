@@ -73,11 +73,14 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
         // --- Rotation
         if (isAiming)
         {
-
+            // look towards a point
         }
         else
         {
-            
+            // Look/rotate in the y axis in the direction the player is moving
+            Vector3 flatVel = new Vector3(velocity.x, 0, velocity.z);
+            if (flatVel.sqrMagnitude > 0.01f)
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(flatVel), 0.2f);
         }
 
         // --- Walk cycle for footstep sfx
