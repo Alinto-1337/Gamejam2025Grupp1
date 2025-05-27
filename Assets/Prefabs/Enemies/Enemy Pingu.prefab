@@ -96,7 +96,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   walkingSpeed: 4
-  deathFxPrefabs: []
+  deathFxPrefabs:
+  - {fileID: 122926365620279662, guid: 9860744438ce58e4a8eab402060bb13d, type: 3}
   animator: {fileID: 8222634672543178475}
   walkAnimName: Walk
   pushButtonAnimname: Jump
