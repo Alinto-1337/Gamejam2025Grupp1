@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2624001204853814301}
   - component: {fileID: 8598627342598997956}
   - component: {fileID: 4726028476729839407}
+  - component: {fileID: 2094620305163262226}
   m_Layer: 0
   m_Name: Enemy Pingu
   m_TagString: Untagged
@@ -68,10 +69,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a5718a61d61fd42b0355ace1b2883f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
+  target: {fileID: 0}
+  health: 0
+  SpeedPattern:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  walkingSpeed: 4
+  deathFxPrefabs: []
   animator: {fileID: 8222634672543178475}
   walkAnimName: Walk
   pushButtonAnimname: Jump
+--- !u!65 &2094620305163262226
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32023526588401860}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8045925, y: 3.4873323, z: 1.7177019}
+  m_Center: {x: -0.1627515, y: 1.9156194, z: 0.054432392}
 --- !u!1001 &3962671075753163667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82,15 +131,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a4fc43a54e221a64985c837b271b028f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 80
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a4fc43a54e221a64985c837b271b028f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 80
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a4fc43a54e221a64985c837b271b028f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 80
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a4fc43a54e221a64985c837b271b028f, type: 3}
       propertyPath: m_LocalPosition.x
