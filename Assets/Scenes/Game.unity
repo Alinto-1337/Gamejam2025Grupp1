@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 454559469}
   - component: {fileID: 454559468}
   m_Layer: 3
-  m_Name: Plane
+  m_Name: ShootingPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1123,8 +1123,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 518967823147205272, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+      propertyPath: maxAmmo
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 518967823147205272, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
       propertyPath: firerate
-      value: 1000
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 518967823147205272, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+      propertyPath: reloadTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 518967823147205272, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+      propertyPath: bulletSpeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 518967823147205272, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+      propertyPath: spawnDistance
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5576224923517027895, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
       propertyPath: m_Name

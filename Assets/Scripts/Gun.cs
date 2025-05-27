@@ -1,18 +1,23 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Gun : MonoBehaviour, MyInputManager.IGunActions
 {
     [SerializeField] GameObject bullet;
+    [SerializeField] float spawnDistance;
     [SerializeField] float bulletSpeed;
     [Tooltip("Rounds Per Minute")]
     [SerializeField] float firerate;
     [SerializeField] int maxAmmo;
+    [SerializeField] float reloadTime;
     float firerateS;
 
     int ammo;
 
     bool shooting = false;
+
+    bool reloading;
 
     float shootTimer;
 
@@ -34,7 +39,6 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
         if (context.started)
         {
             shooting = true;
-            Debug.Log("grui");
         }
         if (context.canceled)
         {
@@ -46,7 +50,7 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
     {
         shootTimer += Time.deltaTime;
 
-        if (shooting && shootTimer > firerateS)
+        if (shooting && shootTimer > firerateS && !reloading)
         {
             Vector2 mousePos = Mouse.current.position.ReadValue();
 
@@ -54,14 +58,35 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
 
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 100, LayerMask.GetMask("ShootingPlane")))
+            if (Physics.Raycast(ray, out hit, 200, LayerMask.GetMask("ShootingPlane")))
             {
-                GameObject bulletInstace = Instantiate(bullet, transform.position, Quaternion.identity);
+                GameObject bulletInstance = Instantiate(bullet, transform.position + (hit.point - transform.position).normalized * spawnDistance, Quaternion.identity);
                 
-                bulletInstace.GetComponent<Rigidbody>().linearVelocity = (hit.point-transform.position).normalized * bulletSpeed;
+                bulletInstance.GetComponent<Rigidbody>().linearVelocity = (hit.point-transform.position).normalized * bulletSpeed;
+
+                bulletInstance.transform.LookAt(bulletInstance.transform.position + bulletInstance.GetComponent<Rigidbody>().linearVelocity.normalized);
 
                 shootTimer = 0;
+
+                EffectManager.Instance.PlayScreenShakePulse(.1f, EffectManager.EffectPower.aggressive);
+
+                ammo--;
+
+                if (ammo <= 0)
+                {
+                    StartCoroutine(Reload());
+                }
             }
         }
+    }
+
+    IEnumerator Reload()
+    {
+        reloading = true;
+
+        yield return new WaitForSeconds(reloadTime);
+
+        ammo = maxAmmo;
+        reloading = false;
     }
 }
