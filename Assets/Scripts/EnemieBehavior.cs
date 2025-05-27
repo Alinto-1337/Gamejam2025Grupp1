@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 public class EnemieBehavior : MonoBehaviour
 {
-    [SerializeField] Transform Target;
+    [SerializeField] Transform target;
     [SerializeField] int health;
 
     [Header("Effects")]
@@ -34,7 +34,12 @@ public class EnemieBehavior : MonoBehaviour
 
     void Update()
     {
-        agent.SetDestination(Target.position);
+        agent.SetDestination(target.position);
+    }
+
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
     }
 
     private void OnCollisionEnter(Collision other)
