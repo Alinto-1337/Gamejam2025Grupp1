@@ -7,7 +7,7 @@ public class Button : MonoBehaviour
     [SerializeField] Sprite[] buttonIconStages;
     [SerializeField] float blinkInterval;
 
-    int currentStage = 0;
+    int currentStage = 2;
 
     float blinkTimer;
 
@@ -33,9 +33,21 @@ public class Button : MonoBehaviour
         {
             blinkTimer += Time.deltaTime;
 
-            if (blinkTimer > blinkInterval)
+            if (currentStage == 2 && blinkTimer > blinkInterval)
             {
+                currentStage++;
 
+                UpdateUI();
+
+                blinkTimer = 0;
+            }
+
+            if (currentStage >= 3 && blinkTimer > blinkInterval)
+            {
+                currentStage = 2;
+                UpdateUI();
+
+                blinkTimer = 0;
             }
         }
     }
