@@ -108,6 +108,6 @@ public class EnemieBehavior : MonoBehaviour
 
     void SpawnRagdoll()
     {
-        Instantiate(ragdoll, transform.position, transform.rotation);
+        Instantiate(ragdoll, transform.position, transform.rotation).GetComponentInChildren<Rigidbody>().linearVelocity += new Vector3(Random.Range(-5,5), 10, Random.Range(-5,5));
     }
 }
