@@ -42,7 +42,7 @@ public class Button : MonoBehaviour
     void PopTheLid()
     {
         glassDome.GetComponent<Rigidbody>().isKinematic = false;
-        glassDome.GetComponent<Rigidbody>().linearVelocity = new Vector3(Random.Range(-15, 15), Random.Range(30, 40), Random.Range(-15, 15));
+        glassDome.GetComponent<Rigidbody>().linearVelocity = new Vector3(Random.Range(10, 15), Random.Range(30, 40), Random.Range(-5, 5));
     }
     void Gravity()
     {
