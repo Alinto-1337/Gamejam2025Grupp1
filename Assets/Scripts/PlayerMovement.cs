@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
     [SerializeField] float movementSmoothing;
     [SerializeField] float walkCyckle;
     [SerializeField] GameObject footsteps;
+    [SerializeField] GameObject SFX;
 
     [Header("Audio")]
     [SerializeField] AudioClip [] footstepsClip;
@@ -46,10 +47,15 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
     {
         AudioClip randFoot = footstepsClip[Random.Range(0, footstepsClip.Length)];
 
-        Debug.Log(randFoot);
+        float randPitch = Random.Range(0.8f, 1.2f);
 
-        source.PlayOneShot(randFoot);
+        source.pitch = randPitch;
 
+        GameObject footSFX = Instantiate(SFX, transform.position, Quaternion.identity);
+
+        footSFX.GetComponent<AudioSource>().pitch = randPitch;
+        footSFX.GetComponent<AudioSource>().clip = randFoot;
+        footSFX.GetComponent<AudioSource>().Play();
     }
 
     private void Update()

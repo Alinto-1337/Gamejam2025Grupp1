@@ -145,8 +145,6 @@ public class EffectManager : Singleton<EffectManager>
             resultIntensity += activeScreenShakes[i].UpdateAndGetIntensity();
         }
 
-        Debug.Log(resultIntensity);
-
         gameCamera.SetShakeOffset(Random.insideUnitCircle * resultIntensity);
     }
 }
