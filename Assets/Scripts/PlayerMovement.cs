@@ -5,11 +5,14 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
 {
     [SerializeField] float movementSpeed;
     [SerializeField] float movementSmoothing;
+    [SerializeField] AudioSource moveAudio;
+
 
     Vector2 input;
 
     Vector3 velocity;
     Vector3 vel;
+
 
     MyInputManager.PlayerActions playerActions;
 
@@ -26,6 +29,17 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
     public void OnMove(InputAction.CallbackContext context)
     {
         input = context.ReadValue<Vector2>();
+
+        if (context.performed && input.magnitude > 0.1f)
+        {
+            if (!moveAudio.isPlaying)
+                moveAudio.Play();
+        }
+        else if (context.canceled || input.magnitude <= 0.1f)
+        {
+            if (moveAudio.isPlaying)
+                moveAudio.Pause(); // Or Stop() if needed
+        }
     }
 
     private void Update()

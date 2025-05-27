@@ -424,6 +424,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3572486509823155529, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+      propertyPath: moveAudio
+      value: 
+      objectReference: {fileID: 828214620}
     - target: {fileID: 5576224923517027895, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -494,7 +498,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 69a77bbc90fcb8342afb9c94d90af64d, type: 3}
   m_Resource: {fileID: 8300000, guid: 69a77bbc90fcb8342afb9c94d90af64d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.412
   m_Pitch: 1
   Loop: 1
   Mute: 0
