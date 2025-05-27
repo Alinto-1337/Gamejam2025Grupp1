@@ -98,6 +98,7 @@ MonoBehaviour:
   walkingSpeed: 4
   deathFxPrefabs:
   - {fileID: 122926365620279662, guid: 9860744438ce58e4a8eab402060bb13d, type: 3}
+  hitFxPrefab: {fileID: 8124042175084613956, guid: dd51e6f8ff34aa146af347ed7660ee43, type: 3}
   animator: {fileID: 8222634672543178475}
   walkAnimName: Walk
   pushButtonAnimname: Jump

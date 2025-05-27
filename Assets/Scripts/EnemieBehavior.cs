@@ -13,6 +13,7 @@ public class EnemieBehavior : MonoBehaviour
 
     [Header("Effects")]
     [SerializeField] List<GameObject> deathFxPrefabs;
+    [SerializeField] GameObject hitFxPrefab;
 
     [Header("Animations")]
     [SerializeField] Animator animator;
@@ -70,6 +71,8 @@ public class EnemieBehavior : MonoBehaviour
         Bullet bullet = other.gameObject.GetComponent<Bullet>();
 
         if (bullet == null) return;
+
+        Instantiate(hitFxPrefab, other.transform.position, Quaternion.identity);
 
         Destroy(other.gameObject);
 
