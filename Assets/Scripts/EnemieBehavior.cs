@@ -28,4 +28,9 @@ public class EnemieBehavior : MonoBehaviour
     {
         agent.SetDestination(Target.position);
     }
+
+    public void SetTarget(Transform target)
+    {
+        this.Target = target;
+    }
 }
