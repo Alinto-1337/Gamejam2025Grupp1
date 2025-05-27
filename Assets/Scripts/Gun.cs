@@ -73,7 +73,7 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
 
             if (Physics.Raycast(ray, out hit, 200, LayerMask.GetMask("ShootingPlane")))
             {
-                GameObject bulletInstance = Instantiate(bullet, transform.position + (hit.point - transform.position).normalized * spawnDistance, Quaternion.identity);
+                GameObject bulletInstance = Instantiate(bullet, transform.position + Vector3.up + (hit.point - transform.position).normalized * spawnDistance, Quaternion.identity);
                 
                 bulletInstance.GetComponent<Rigidbody>().linearVelocity = (hit.point-transform.position).normalized * bulletSpeed;
 
