@@ -43,6 +43,8 @@ public class EnemieBehavior : MonoBehaviour
 
         if (bullet == null) return;
 
+        Destroy(other.gameObject);
+
         ApplyDamage(bullet.damage);
     }
 
