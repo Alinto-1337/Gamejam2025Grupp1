@@ -26,6 +26,9 @@ public class Button : MonoBehaviour
 
     public void TakeDamage()
     {
+        EffectManager.Instance.PlayScreenShakePulse(0.8f, EffectManager.EffectPower.aggressive);
+        EffectManager.Instance.PlayVignettePulse(0.5f, Color.red, EffectManager.EffectPower.normal);
+
         if (currentStage > 1)
         {
             Instantiate(Explosion, transform.position, Quaternion.identity);
