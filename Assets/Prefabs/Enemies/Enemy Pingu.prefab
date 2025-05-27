@@ -103,6 +103,7 @@ MonoBehaviour:
   animator: {fileID: 8222634672543178475}
   walkAnimName: Walk
   pushButtonAnimname: Jump
+  buttonPressTime: 0.7
 --- !u!65 &2094620305163262226
 BoxCollider:
   m_ObjectHideFlags: 0
