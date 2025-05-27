@@ -65,6 +65,8 @@ public class EnemieBehavior : MonoBehaviour
 
     void OnButtonPress()
     {
+        target.GetComponent<Button>().TakeDamage();
+
         transform.position = target.position + Vector3.up * 2;
 
         Die();

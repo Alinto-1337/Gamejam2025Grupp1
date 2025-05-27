@@ -8,6 +8,8 @@ public class Button : MonoBehaviour
     [SerializeField] GameObject buttonPresser;
     [SerializeField] GameObject glassDome;
 
+    [SerializeField] GameObject Explosion;
+
     [SerializeField] float[] buttonHeightPos;
     [SerializeField] float blinkInterval;
     [SerializeField] float gravityStrength;
@@ -24,6 +26,12 @@ public class Button : MonoBehaviour
 
     public void TakeDamage()
     {
+        if (currentStage > 1)
+        {
+            Instantiate(Explosion, transform.position, Quaternion.identity);
+            return;
+        }
+
         currentStage++;
         UpdateUI();
         UpdateButtonPosition();
@@ -36,7 +44,7 @@ public class Button : MonoBehaviour
 
     void UpdateButtonPosition()
     {
-        buttonPresser.transform.localPosition = new Vector3(buttonPresser.transform.position.x, buttonHeightPos[currentStage], buttonPresser.transform.position.z);
+        buttonPresser.transform.localPosition -= Vector3.up * 0.005f; 
     }
 
     void PopTheLid()

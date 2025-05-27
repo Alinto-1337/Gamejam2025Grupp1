@@ -79,10 +79,11 @@ MonoBehaviour:
   - {fileID: -783813683, guid: d2654e494e707e74b8005af474dceee7, type: 3}
   buttonPresser: {fileID: 636196624398980645}
   glassDome: {fileID: 6962927878790425906}
+  Explosion: {fileID: 4832507291048919984, guid: 9bcd99f9454c1504b90d9bdebcf850b4, type: 3}
   buttonHeightPos:
   - 0.01
+  - 0.005
   - 0
-  - -0.008
   blinkInterval: 0.5
   gravityStrength: 60
 --- !u!1 &3131552180929947303
