@@ -59,6 +59,11 @@ public class EnemieBehavior : MonoBehaviour
         }
     }
 
+    public void ApplyKnockBack(Vector3 direction, float force)
+    {
+        agent.velocity = direction * force;
+    }
+
     public void SetTarget(Transform target)
     {
         if (!agent.enabled) { Debug.LogError($"Agent is disabled, {name}"); }
@@ -83,7 +88,7 @@ public class EnemieBehavior : MonoBehaviour
     {
         foreach (GameObject _fx in deathFxPrefabs)
         {
-            Instantiate(_fx, transform.position, Quaternion.identity);
+            Instantiate(_fx, transform.position, transform.rotation);
         }
         Destroy(gameObject);
         gameObject.SetActive(false);

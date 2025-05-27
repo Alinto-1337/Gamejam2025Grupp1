@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] float lifetime = 5f;
     [Tooltip("Delay before the bullet is destroyed after hitting something")]
     [SerializeField] float bulletDieDelay = 0.1f;
+    [SerializeField] float knockbackForce = 5f;
 
     Rigidbody rb;
 
@@ -29,7 +30,18 @@ public class Bullet : MonoBehaviour
             EnemieBehavior enemyBehavior = other.gameObject.GetComponent<EnemieBehavior>();
             enemyBehavior.ApplyDamage(damage);
             Instantiate(enemyBehavior.bulletHitFxPrefab, other.GetContact(0).point, Quaternion.identity);
+
+            Vector3 direction = (other.transform.position - transform.position).normalized;
+            enemyBehavior.ApplyKnockBack(direction, knockbackForce);
         }
+
+        Rigidbody otherRb = other.gameObject.GetComponent<Rigidbody>();
+        if (otherRb != null)
+        {
+            Vector3 direction = -(other.transform.position - transform.position).normalized;
+            otherRb.AddForce(direction * knockbackForce, ForceMode.Impulse);
+        }
+
         gameObject.SetActive(false);
         Destroy(gameObject);
     }

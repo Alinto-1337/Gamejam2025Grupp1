@@ -271,3 +271,4 @@ MonoBehaviour:
   damage: 1
   lifetime: 5
   bulletDieDelay: 0
+  knockbackForce: 3
