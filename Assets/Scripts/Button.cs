@@ -12,7 +12,7 @@ public class Button : MonoBehaviour
     [SerializeField] float blinkInterval;
     [SerializeField] float gravityStrength;
 
-    int currentStage = 2;
+    int currentStage = 0;
 
     float blinkTimer;
 
