@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
     [Tooltip("Rounds Per Minute")]
     [SerializeField] float firerate;
     [SerializeField] int maxAmmo;
+    [SerializeField] Animator ammoIconAnimator;
     [SerializeField] float reloadTime;
     float firerateS;
 
@@ -67,6 +68,7 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
         {
 
             Vector3 cursorPos = WorldSpaceGursor.Instance.transform.position;
+            cursorPos.y = transform.position.y+1; 
 
 
             GameObject bulletInstance = Instantiate(bullet, transform.position + Vector3.up + (cursorPos - (transform.position + Vector3.up)).normalized * spawnDistance, Quaternion.identity);
@@ -109,11 +111,14 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
     IEnumerator Reload()
     {
         reloading = true;
+        ammoIconAnimator.CrossFade("ReloadSpin", 0.1f);
 
         yield return new WaitForSeconds(reloadTime);
 
         ammo = maxAmmo;
         ammoText.text = ammo + " / " + maxAmmo;
+
+        ammoIconAnimator.CrossFade("Idle", 0.1f);
 
         reloading = false;
     }

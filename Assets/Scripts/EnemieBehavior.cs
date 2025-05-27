@@ -65,17 +65,6 @@ public class EnemieBehavior : MonoBehaviour
         this.target = target;
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        Bullet bullet = other.gameObject.GetComponent<Bullet>();
-
-        if (bullet == null) return;
-
-        Destroy(other.gameObject);
-
-        ApplyDamage(bullet.damage);
-    }
-
     public void ApplyDamage(int _dmg)
     {
         if (_dmg <= 0) return;
