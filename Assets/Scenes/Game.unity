@@ -1439,7 +1439,7 @@ PrefabInstance:
       objectReference: {fileID: 256019245}
     - target: {fileID: 518967823147205272, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
       propertyPath: firerate
-      value: 600
+      value: 580
       objectReference: {fileID: 0}
     - target: {fileID: 518967823147205272, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
       propertyPath: reloadTime
