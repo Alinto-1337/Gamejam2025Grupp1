@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Playables;
 
 
 
@@ -9,6 +11,7 @@ public class GameManager : Singleton<GameManager>
     public bool gameStarted = false;
 
     [SerializeField] UnityEvent onGameStart;
+    [SerializeField] PlayableAsset timelineToPlayOnStart;
 
 
     private void Start()
@@ -20,6 +23,9 @@ public class GameManager : Singleton<GameManager>
     {
         gameStarted = true;
         onGameStart.Invoke();
+
+        GetComponent<PlayableDirector>().playableAsset = timelineToPlayOnStart;
+        GetComponent<PlayableDirector>().Play();
     }
 
     public void QuitGame()

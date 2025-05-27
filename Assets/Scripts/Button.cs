@@ -16,12 +16,13 @@ public class Button : MonoBehaviour
 
     int currentStage = 0;
 
+    bool lidPopped = false;
+
     float blinkTimer;
 
     private void Start()
     {
         UpdateUI();
-        PopTheLid();
     }
 
     public void TakeDamage()
@@ -50,13 +51,16 @@ public class Button : MonoBehaviour
         buttonPresser.transform.localPosition -= Vector3.up * 0.005f; 
     }
 
-    void PopTheLid()
+    public void PopTheLid()
     {
         glassDome.GetComponent<Rigidbody>().isKinematic = false;
         glassDome.GetComponent<Rigidbody>().linearVelocity = new Vector3(Random.Range(10, 15), Random.Range(30, 40), Random.Range(-5, 5));
+        lidPopped = true;
     }
     void Gravity()
     {
+        if (!lidPopped) return;
+        
         Vector3 gravity = new Vector3(0, -gravityStrength, 0);
 
         glassDome.GetComponent<Rigidbody>().linearVelocity += gravity * Time.deltaTime;
