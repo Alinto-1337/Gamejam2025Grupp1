@@ -43,11 +43,14 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
 
         transform.position += velocity * movementSpeed * Time.deltaTime;
 
-        Timer =+ Time.deltaTime;
+        Timer += Time.deltaTime;
 
-        if (Timer > walkCyckle)
+        if (Timer > walkCyckle && velocity.magnitude > 1)
         {
-            Instantiate(footsteps);
+            Instantiate(footsteps, transform.position, transform.rotation);
+            Timer = 0;
         }
+
+        Debug.Log(Timer);
     }
 }
