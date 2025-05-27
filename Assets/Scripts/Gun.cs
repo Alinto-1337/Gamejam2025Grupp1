@@ -17,6 +17,7 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
     float firerateS;
 
     [SerializeField] GameObject MuzzleFlash;
+    [SerializeField] GameObject casingPrefab;
 
     [Header("Audio")]
     [SerializeField] AudioClip bass;
@@ -79,8 +80,13 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
             // ----
 
             GameObject Muzzleflash1 = Instantiate(MuzzleFlash, transform.position + Vector3.up, transform.rotation);
-
             Muzzleflash1.transform.LookAt(transform.position + Vector3.up + (cursorPos - (transform.position - Vector3.up)).normalized);
+
+            // ---
+
+            GameObject casing = Instantiate(casingPrefab, transform.position + transform.right + Vector3.up * 2, transform.rotation);
+            casing.GetComponent<Rigidbody>().linearVelocity = transform.right * 20;
+            casing.GetComponent<Rigidbody>().angularVelocity = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), Random.Range(-10, 10));
 
             EffectManager.Instance.PlayScreenShakePulse(.1f, EffectManager.EffectPower.aggressive);
 

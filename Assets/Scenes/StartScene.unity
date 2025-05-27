@@ -3160,18 +3160,6 @@ PrefabInstance:
       propertyPath: ammoIconAnimator
       value: 
       objectReference: {fileID: 445115809}
-    - target: {fileID: 3572486509823155529, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1777991377}
-    - target: {fileID: 3572486509823155529, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
-      propertyPath: idleAnimName
-      value: Idle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3572486509823155529, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
-      propertyPath: walkAnimName
-      value: Walk
-      objectReference: {fileID: 0}
     - target: {fileID: 5576224923517027895, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3224,11 +3212,6 @@ PrefabInstance:
 --- !u!4 &1777991376 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6407391094152705121, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
-  m_PrefabInstance: {fileID: 1777991375}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1777991377 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 97906334943619790, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
   m_PrefabInstance: {fileID: 1777991375}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1854370466
