@@ -5,7 +5,8 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
 {
     [SerializeField] float movementSpeed;
     [SerializeField] float movementSmoothing;
-    [SerializeField] float walkCyckle;
+    [SerializeField] float maxDistance;
+    [SerializeField] float walkCycle;
     [SerializeField] GameObject footsteps;
     [SerializeField] GameObject SFX;
 
@@ -88,11 +89,17 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
         // --- Walk cycle for footstep sfx
         Timer += Time.deltaTime;
 
-        if (Timer > walkCyckle && velocity.magnitude > 1)
+        if (Timer > walkCycle && velocity.magnitude > 1)
         {
             Instantiate(footsteps, transform.position, footsteps.transform.rotation);
             Timer = 0;
             WalkAudio();
+        }
+
+        // --- Clamp position to circle
+        if (Vector3.Distance(Vector3.up, transform.position) > maxDistance)
+        {
+            transform.position = (transform.position - Vector3.up).normalized * maxDistance + Vector3.up;
         }
     }
 
