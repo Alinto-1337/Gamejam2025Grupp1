@@ -5,8 +5,10 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
 {
     [SerializeField] float movementSpeed;
     [SerializeField] float movementSmoothing;
-    [SerializeField] AudioSource moveAudio;
-
+    [SerializeField] float walkCyckle;
+    [SerializeField] GameObject footsteps;
+    
+    private float Timer;
 
     Vector2 input;
 
@@ -29,17 +31,6 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
     public void OnMove(InputAction.CallbackContext context)
     {
         input = context.ReadValue<Vector2>();
-
-        if (context.performed && input.magnitude > 0.1f)
-        {
-            if (!moveAudio.isPlaying)
-                moveAudio.Play();
-        }
-        else if (context.canceled || input.magnitude <= 0.1f)
-        {
-            if (moveAudio.isPlaying)
-                moveAudio.Pause(); // Or Stop() if needed
-        }
     }
 
     private void Update()
@@ -51,5 +42,12 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
         velocity = Vector3.SmoothDamp(velocity, moveDir, ref vel, movementSmoothing);
 
         transform.position += velocity * movementSpeed * Time.deltaTime;
+
+        Timer =+ Time.deltaTime;
+
+        if (Timer > walkCyckle)
+        {
+            Instantiate(footsteps);
+        }
     }
 }
