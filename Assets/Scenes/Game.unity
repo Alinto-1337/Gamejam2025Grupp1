@@ -1824,6 +1824,18 @@ PrefabInstance:
       propertyPath: ammoIconAnimator
       value: 
       objectReference: {fileID: 2078290328}
+    - target: {fileID: 3572486509823155529, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 5868760053591224960}
+    - target: {fileID: 3572486509823155529, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+      propertyPath: idleAnimName
+      value: Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3572486509823155529, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+      propertyPath: walkAnimName
+      value: Walk
+      objectReference: {fileID: 0}
     - target: {fileID: 5576224923517027895, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1873,6 +1885,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+--- !u!95 &5868760053591224960 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 97906334943619790, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+  m_PrefabInstance: {fileID: 5868760053591224958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8117784311134685948
 PrefabInstance:
   m_ObjectHideFlags: 0
