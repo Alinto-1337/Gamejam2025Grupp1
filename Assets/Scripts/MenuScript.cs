@@ -5,10 +5,12 @@ public class MenuScript : MonoBehaviour
 {
     [SerializeField] Animator[] animators;
     bool isPaused;
+    bool inMenu;
 
     private void Awake()
     {
-        isPaused = true;
+        isPaused = false;
+        inMenu = true;
     }
 
     public void Play()
@@ -16,7 +18,7 @@ public class MenuScript : MonoBehaviour
         animators[0].SetBool("PlayIsPressed", true);
         animators[1].SetBool("PlayIsPressed", true);
         animators[2].SetBool("PlayIsPressed", true);
-        isPaused = false;
+        inMenu = false;
     }
 
     public void Quit()
@@ -26,7 +28,7 @@ public class MenuScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)&& isPaused == false)
+        if (Input.GetKeyDown(KeyCode.Escape)&& !isPaused && !inMenu)
         {
             animators[3].SetBool("ESCisPressed", true);
             isPaused = true;            
@@ -48,6 +50,8 @@ public class MenuScript : MonoBehaviour
         animators[0].SetBool("PlayIsPressed", false);
         animators[1].SetBool("PlayIsPressed", false);
         animators[2].SetBool("PlayIsPressed", false);
+        animators[3].SetBool("ESCisPressed", false);
+        inMenu = true;
     }
 
     public void Resume()
