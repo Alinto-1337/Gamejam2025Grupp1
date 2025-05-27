@@ -76,7 +76,7 @@ public class EnemieBehavior : MonoBehaviour
     {
         foreach (GameObject _fx in deathFxPrefabs)
         {
-            Instantiate(_fx);
+            Instantiate(_fx, transform.position, Quaternion.identity);
         }
         Destroy(gameObject);
         gameObject.SetActive(false);
