@@ -8,6 +8,8 @@ public class Button : MonoBehaviour
     [SerializeField] GameObject buttonPresser;
     [SerializeField] GameObject glassDome;
 
+    [SerializeField] GameObject Explosion;
+
     [SerializeField] float[] buttonHeightPos;
     [SerializeField] float blinkInterval;
     [SerializeField] float gravityStrength;
@@ -24,6 +26,15 @@ public class Button : MonoBehaviour
 
     public void TakeDamage()
     {
+        EffectManager.Instance.PlayScreenShakePulse(0.8f, EffectManager.EffectPower.aggressive);
+        EffectManager.Instance.PlayVignettePulse(0.5f, Color.red, EffectManager.EffectPower.normal);
+
+        if (currentStage > 1)
+        {
+            Instantiate(Explosion, transform.position, Quaternion.identity);
+            return;
+        }
+
         currentStage++;
         UpdateUI();
         UpdateButtonPosition();
@@ -36,13 +47,13 @@ public class Button : MonoBehaviour
 
     void UpdateButtonPosition()
     {
-        buttonPresser.transform.localPosition = new Vector3(buttonPresser.transform.position.x, buttonHeightPos[currentStage], buttonPresser.transform.position.z);
+        buttonPresser.transform.localPosition -= Vector3.up * 0.005f; 
     }
 
     void PopTheLid()
     {
         glassDome.GetComponent<Rigidbody>().isKinematic = false;
-        glassDome.GetComponent<Rigidbody>().linearVelocity = new Vector3(Random.Range(-15, 15), Random.Range(30, 40), Random.Range(-15, 15));
+        glassDome.GetComponent<Rigidbody>().linearVelocity = new Vector3(Random.Range(10, 15), Random.Range(30, 40), Random.Range(-5, 5));
     }
     void Gravity()
     {
