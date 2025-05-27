@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
     Vector3 velocity;
     Vector3 vel;
 
+    bool isAiming = false;
+
 
     MyInputManager.PlayerActions playerActions;
 
@@ -52,6 +54,7 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
 
     private void Update()
     {
+        // --- Movement
         Vector2 direction = input.x * moveDirX + input.y * moveDirY;
 
         Vector3 moveDir = new Vector3(direction.x, 0, direction.y);
@@ -60,6 +63,18 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
 
         transform.position += velocity * movementSpeed * Time.deltaTime;
 
+
+        // --- Rotation
+        if (isAiming)
+        {
+
+        }
+        else
+        {
+            
+        }
+
+        // --- Walk cycle for footstep sfx
         Timer += Time.deltaTime;
 
         if (Timer > walkCyckle && velocity.magnitude > 1)
@@ -68,5 +83,10 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
             Timer = 0;
             WalkAudio();
         }
+    }
+
+    public void OnAim(InputAction.CallbackContext context)
+    {
+        
     }
 }
