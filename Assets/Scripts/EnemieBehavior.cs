@@ -14,6 +14,7 @@ public class EnemieBehavior : MonoBehaviour
     [Header("Effects")]
     [SerializeField] List<GameObject> deathFxPrefabs;
     [SerializeField] public GameObject bulletHitFxPrefab;
+    [SerializeField] GameObject ragdoll;
 
     [Header("Animations")]
     [SerializeField] Animator animator;
@@ -90,6 +91,7 @@ public class EnemieBehavior : MonoBehaviour
         health -= _dmg;
         if (health <= 0)
         {
+            SpawnRagdoll();
             Die();
         }
     }
@@ -102,5 +104,10 @@ public class EnemieBehavior : MonoBehaviour
         }
         Destroy(gameObject);
         gameObject.SetActive(false);
+    }
+
+    void SpawnRagdoll()
+    {
+        Instantiate(ragdoll, transform.position, transform.rotation);
     }
 }
