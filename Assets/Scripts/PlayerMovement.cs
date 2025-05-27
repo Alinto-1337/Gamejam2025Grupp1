@@ -47,13 +47,13 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
     {
         AudioClip randFoot = footstepsClip[Random.Range(0, footstepsClip.Length)];
 
-        float randPitch = Random.Range(0.8f, 1.2f);
+        //float randPitch = Random.Range(0.8f, 1.2f);
 
-        source.pitch = randPitch;
+        //source.pitch = randPitch;
 
         GameObject footSFX = Instantiate(SFX, transform.position, Quaternion.identity);
 
-        footSFX.GetComponent<AudioSource>().pitch = randPitch;
+        //footSFX.GetComponent<AudioSource>().pitch = randPitch;
         footSFX.GetComponent<AudioSource>().clip = randFoot;
         footSFX.GetComponent<AudioSource>().Play();
     }
