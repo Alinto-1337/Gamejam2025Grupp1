@@ -98,11 +98,12 @@ MonoBehaviour:
   walkingSpeed: 4
   deathFxPrefabs:
   - {fileID: 122926365620279662, guid: 9860744438ce58e4a8eab402060bb13d, type: 3}
-  - {fileID: 5285511971521484007, guid: c780b7002b858154f94d8e29ec23ef25, type: 3}
   bulletHitFxPrefab: {fileID: 8124042175084613956, guid: dd51e6f8ff34aa146af347ed7660ee43, type: 3}
+  ragdoll: {fileID: 5285511971521484007, guid: c780b7002b858154f94d8e29ec23ef25, type: 3}
   animator: {fileID: 8222634672543178475}
   walkAnimName: Walk
   pushButtonAnimname: Jump
+  buttonPressTime: 0.7
 --- !u!65 &2094620305163262226
 BoxCollider:
   m_ObjectHideFlags: 0

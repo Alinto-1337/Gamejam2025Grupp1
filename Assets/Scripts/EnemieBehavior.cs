@@ -14,11 +14,13 @@ public class EnemieBehavior : MonoBehaviour
     [Header("Effects")]
     [SerializeField] List<GameObject> deathFxPrefabs;
     [SerializeField] public GameObject bulletHitFxPrefab;
+    [SerializeField] GameObject ragdoll;
 
     [Header("Animations")]
     [SerializeField] Animator animator;
     [SerializeField] string walkAnimName;
     [SerializeField] string pushButtonAnimname;
+    [SerializeField] float buttonPressTime;
 
     bool active = true;
 
@@ -57,8 +59,15 @@ public class EnemieBehavior : MonoBehaviour
 
             animator.CrossFade(pushButtonAnimname, 0.1f);
 
-            Invoke(nameof(Die), 0.6f);
+            Invoke(nameof(OnButtonPress), buttonPressTime);
         }
+    }
+
+    void OnButtonPress()
+    {
+        transform.position = target.position + Vector3.up * 2;
+
+        Die();
     }
 
     public void ApplyKnockBack(Vector3 direction, float force)
@@ -82,6 +91,7 @@ public class EnemieBehavior : MonoBehaviour
         health -= _dmg;
         if (health <= 0)
         {
+            SpawnRagdoll();
             Die();
         }
     }
@@ -94,5 +104,10 @@ public class EnemieBehavior : MonoBehaviour
         }
         Destroy(gameObject);
         gameObject.SetActive(false);
+    }
+
+    void SpawnRagdoll()
+    {
+        Instantiate(ragdoll, transform.position, transform.rotation);
     }
 }

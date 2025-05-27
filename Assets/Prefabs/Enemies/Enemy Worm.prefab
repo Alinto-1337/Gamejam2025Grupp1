@@ -121,6 +121,7 @@ MonoBehaviour:
   animator: {fileID: 417612850225488670}
   walkAnimName: Walk
   pushButtonAnimname: Click
+  buttonPressTime: 1
 --- !u!65 &5235798198785473838
 BoxCollider:
   m_ObjectHideFlags: 0
