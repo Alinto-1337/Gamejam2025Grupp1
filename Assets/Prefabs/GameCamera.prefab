@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4402366678877206052}
   - component: {fileID: 6916428906151829496}
+  - component: {fileID: 8657927679296030850}
   m_Layer: 0
   m_Name: GameCamera
   m_TagString: Untagged
@@ -50,6 +51,28 @@ MonoBehaviour:
   - {fileID: 0}
   smoothSpeed: 2
   offset: {x: 0, y: 0, z: 0}
+--- !u!95 &8657927679296030850
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6552324287685021176}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &9097992524232952517
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,6 +85,7 @@ GameObject:
   - component: {fileID: 6255232304653656605}
   - component: {fileID: 3398524145712134888}
   - component: {fileID: 9171244635696576152}
+  - component: {fileID: 8152781586449207668}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -77,13 +101,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9097992524232952517}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
+  m_LocalRotation: {x: 0.2391176, y: 0.3696438, z: -0.09904576, w: 0.8923991}
   m_LocalPosition: {x: -20, y: 20, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4402366678877206052}
-  m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.000001121475, y: -0.000004825809, z: 0.000004279293}
 --- !u!20 &6255232304653656605
 Camera:
   m_ObjectHideFlags: 0
@@ -187,3 +211,25 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!95 &8152781586449207668
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9097992524232952517}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
