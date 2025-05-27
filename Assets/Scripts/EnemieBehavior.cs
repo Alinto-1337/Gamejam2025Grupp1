@@ -5,6 +5,11 @@ public class EnemieBehavior : MonoBehaviour
 {
     [SerializeField] Transform Target;
 
+    [Header("Animations")]
+    [SerializeField] Animator animator;
+    [SerializeField] string walkAnimName;
+    [SerializeField] string pushButtonAnimname;
+
     NavMeshAgent agent;
 
     private void Awake()
@@ -13,7 +18,9 @@ public class EnemieBehavior : MonoBehaviour
     }
     void Start()
     {
+        if (animator == null) Debug.LogError($"No animator assigned in enemy script, {name}");
 
+        animator.CrossFade(walkAnimName, 0.2f);
     }
 
 
