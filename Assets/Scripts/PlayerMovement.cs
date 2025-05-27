@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
 
         if (Timer > walkCyckle && velocity.magnitude > 1)
         {
-            Instantiate(footsteps, transform.position, transform.rotation);
+            Instantiate(footsteps, transform.position, footsteps.transform.rotation);
             Timer = 0;
         }
 
