@@ -11,6 +11,6 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        //transform.LookAt(transform.position + rb.linearVelocity.normalized);
+        transform.LookAt(transform.position + rb.linearVelocity.normalized);
     }
 }

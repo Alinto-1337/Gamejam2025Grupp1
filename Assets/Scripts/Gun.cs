@@ -1,9 +1,11 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Gun : MonoBehaviour, MyInputManager.IGunActions
 {
+    [SerializeField] TMP_Text ammoText;
     [SerializeField] GameObject bullet;
     [SerializeField] float spawnDistance;
     [SerializeField] float bulletSpeed;
@@ -72,6 +74,8 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
 
                 ammo--;
 
+                ammoText.text = ammo + " / " + maxAmmo;
+
                 if (ammo <= 0)
                 {
                     StartCoroutine(Reload());
@@ -87,6 +91,8 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
         yield return new WaitForSeconds(reloadTime);
 
         ammo = maxAmmo;
+        ammoText.text = ammo + " / " + maxAmmo;
+
         reloading = false;
     }
 }
