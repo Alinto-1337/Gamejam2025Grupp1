@@ -19,6 +19,8 @@ public class EnemieBehavior : MonoBehaviour
     [SerializeField] string walkAnimName;
     [SerializeField] string pushButtonAnimname;
 
+    bool active = true;
+
     NavMeshAgent agent;
 
     private void Awake()
@@ -36,17 +38,30 @@ public class EnemieBehavior : MonoBehaviour
 
     void Update()
     {
-        agent.SetDestination(target.position);
+        if (agent.enabled) { agent.SetDestination(target.position); }
 
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
 
         float t = stateInfo.normalizedTime % 1f;
 
         agent.speed = walkingSpeed * SpeedPattern.Evaluate(t);
+
+        if (Vector3.Distance(transform.position, agent.destination) < 5 && active)
+        {
+            active = false;
+
+            agent.enabled = false;
+
+            transform.LookAt(target.position);
+
+            animator.CrossFade(pushButtonAnimname, 0.1f);
+        }
     }
 
     public void SetTarget(Transform target)
     {
+        if (!agent.enabled) { Debug.LogError($"Agent is disabled, {name}"); }
+
         this.target = target;
     }
 
