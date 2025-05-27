@@ -1396,6 +1396,7 @@ GameObject:
   - component: {fileID: 2078290325}
   - component: {fileID: 2078290327}
   - component: {fileID: 2078290326}
+  - component: {fileID: 2078290328}
   m_Layer: 5
   m_Name: AmmoIcon
   m_TagString: Untagged
@@ -1460,6 +1461,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078290324}
   m_CullTransparentMesh: 1
+--- !u!95 &2078290328
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078290324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &5868760053591224958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1498,7 +1521,7 @@ PrefabInstance:
       objectReference: {fileID: 5396884163556358352, guid: 385c80cd354c71e41bf7a829319b6a8e, type: 3}
     - target: {fileID: 518967823147205272, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
       propertyPath: bulletSpeed
-      value: 200
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 518967823147205272, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
       propertyPath: spawnDistance
@@ -1651,7 +1674,37 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5576224923517027895, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2074845325}
+    - targetCorrespondingSourceObject: {fileID: 7121164550842319853, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5868760053591224960}
   m_SourcePrefab: {fileID: 100100000, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+--- !u!1 &5868760053591224959 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7121164550842319853, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+  m_PrefabInstance: {fileID: 5868760053591224958}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5868760053591224960
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5868760053591224959}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f8a259977f0b1aa6aaad6f4a61073f42, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &8117784311134685948
 PrefabInstance:
   m_ObjectHideFlags: 0
