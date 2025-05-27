@@ -7,7 +7,7 @@ public class Button : MonoBehaviour
     [SerializeField] Sprite[] buttonIconStages;
     [SerializeField] float blinkInterval;
 
-    int currentStage = 2;
+    int currentStage = 0;
 
     float blinkTimer;
 
