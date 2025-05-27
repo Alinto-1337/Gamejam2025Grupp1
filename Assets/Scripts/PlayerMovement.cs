@@ -7,6 +7,11 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
     [SerializeField] float movementSmoothing;
     [SerializeField] float walkCyckle;
     [SerializeField] GameObject footsteps;
+
+    [Header("Audio")]
+    [SerializeField] AudioClip [] footstepsClip;
+
+    AudioSource source;
     
     private float Timer;
 
@@ -26,11 +31,23 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
         playerActions = new MyInputManager().Player;
         playerActions.Enable();
         playerActions.SetCallbacks(this);
+
+        source = GetComponent<AudioSource>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         input = context.ReadValue<Vector2>();
+    }
+
+    void WalkAudio()
+    {
+        AudioClip randFoot = footstepsClip[Random.Range(0, footstepsClip.Length)];
+
+        Debug.Log(randFoot);
+
+        source.PlayOneShot(randFoot);
+
     }
 
     private void Update()
@@ -49,8 +66,7 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
         {
             Instantiate(footsteps, transform.position, footsteps.transform.rotation);
             Timer = 0;
+            WalkAudio();
         }
-
-        Debug.Log(Timer);
     }
 }
