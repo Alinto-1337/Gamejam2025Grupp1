@@ -73,7 +73,9 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
         // --- Rotation
         if (isAiming)
         {
-            // look towards a point
+            Vector3 aimDir = WorldSpaceGursor.Instance.transform.position - transform.position;
+            aimDir.y = 0; 
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(aimDir), 0.2f);
         }
         else
         {
@@ -96,6 +98,6 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
 
     public void OnAim(InputAction.CallbackContext context)
     {
-        
+        isAiming = context.ReadValueAsButton();
     }
 }
