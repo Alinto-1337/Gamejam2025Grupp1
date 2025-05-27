@@ -15,6 +15,8 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
     [SerializeField] float reloadTime;
     float firerateS;
 
+    [SerializeField] GameObject MuzzleFlash;
+
     [Header("Audio")]
     [SerializeField] AudioClip bass;
     [SerializeField] AudioClip[] fire;
@@ -71,13 +73,17 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
 
             if (Physics.Raycast(ray, out hit, 200, LayerMask.GetMask("ShootingPlane")))
             {
-                GameObject bulletInstance = Instantiate(bullet, transform.position + (hit.point - transform.position).normalized * spawnDistance, Quaternion.identity);
+                GameObject bulletInstance = Instantiate(bullet, transform.position + Vector3.up + (hit.point - transform.position).normalized * spawnDistance, Quaternion.identity);
                 
                 bulletInstance.GetComponent<Rigidbody>().linearVelocity = (hit.point-transform.position).normalized * bulletSpeed;
 
                 bulletInstance.transform.LookAt(bulletInstance.transform.position + bulletInstance.GetComponent<Rigidbody>().linearVelocity.normalized);
 
                 shootTimer = 0;
+
+                GameObject Muzzleflash1 = Instantiate(MuzzleFlash, transform.position, transform.rotation);
+
+                Muzzleflash1.transform.LookAt(transform.position + (hit.point - transform.position).normalized);
 
                 EffectManager.Instance.PlayScreenShakePulse(.1f, EffectManager.EffectPower.aggressive);
 
