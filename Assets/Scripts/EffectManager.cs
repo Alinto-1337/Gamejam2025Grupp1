@@ -31,8 +31,10 @@ public class EffectManager : Singleton<EffectManager>
         normal
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+        
         // Ensure the volume has a Vignette effect
         if (volume.profile.TryGet(out vignette) == false)
         {
@@ -47,14 +49,6 @@ public class EffectManager : Singleton<EffectManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-
-            PlayScreenShakePulse(5, EffectPower.aggressive);
-
-            //PlayVignettePulse(0.8f, new Color(.9f, 0, 0), EffectPower.aggressive);
-        }
-
         UpdateScreenShake();
     }
 
