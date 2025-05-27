@@ -73,9 +73,9 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
 
             if (Physics.Raycast(ray, out hit, 200, LayerMask.GetMask("ShootingPlane")))
             {
-                GameObject bulletInstance = Instantiate(bullet, transform.position + Vector3.up + (hit.point - transform.position).normalized * spawnDistance, Quaternion.identity);
-                
-                bulletInstance.GetComponent<Rigidbody>().linearVelocity = (hit.point-transform.position).normalized * bulletSpeed;
+                GameObject bulletInstance = Instantiate(bullet, transform.position + Vector3.up + (hit.point - (transform.position + Vector3.up)).normalized * spawnDistance, Quaternion.identity);
+
+                bulletInstance.GetComponent<Rigidbody>().linearVelocity = (hit.point - (transform.position + Vector3.up)).normalized * bulletSpeed;
 
                 bulletInstance.transform.LookAt(bulletInstance.transform.position + bulletInstance.GetComponent<Rigidbody>().linearVelocity.normalized);
 
@@ -85,7 +85,7 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
 
                 GameObject Muzzleflash1 = Instantiate(MuzzleFlash, transform.position + Vector3.up, transform.rotation);
 
-                Muzzleflash1.transform.LookAt(transform.position + Vector3.up + (hit.point - transform.position).normalized);
+                Muzzleflash1.transform.LookAt(transform.position + Vector3.up + (hit.point - (transform.position - Vector3.up)).normalized);
 
                 EffectManager.Instance.PlayScreenShakePulse(.1f, EffectManager.EffectPower.aggressive);
 
