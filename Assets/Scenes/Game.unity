@@ -1742,6 +1742,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3798106269262970203, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
+      propertyPath: enemyPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798106269262970203, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
+      propertyPath: 'enemyPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 32023526588401860, guid: 77e56d0d4a72a12478771d11b0330f70, type: 3}
     - target: {fileID: 4604870156518423235, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
       propertyPath: glassDome
       value: 
