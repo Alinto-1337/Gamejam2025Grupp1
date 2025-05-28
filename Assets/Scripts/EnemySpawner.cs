@@ -5,6 +5,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject button;
     [SerializeField] GameObject[] enemyPrefabs;
+    [SerializeField] GameObject[] frozenStartEnemies;
 
     [SerializeField] float spawnDistance;
     [SerializeField] float spawnDistanceX;
@@ -14,9 +15,35 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] float enemyInstanceAmmount = 5;
     int enemyInstances;
+
     private void Start()
     {
+        if (enemyPrefabs.Length == 0)
+        {
+            Debug.LogError("No enemy prefabs assigned in EnemySpawner script.");
+            return;
+        }
+
+        if (frozenStartEnemies.Length > 0)
+        {
+            foreach (GameObject enemy in frozenStartEnemies)
+            {
+                enemy.SetActive(false);
+            }
+        }
+    }
+
+    public void StartSpawning()
+    {
         StartCoroutine(spawnEnemyA());
+
+        if (frozenStartEnemies.Length > 0)
+        {
+            foreach (GameObject enemy in frozenStartEnemies)
+            {
+                enemy.SetActive(false);
+            }
+        }
     }
    /* void SpawnEnemy (GameObject enemyPrefab, Vector3 spawnPoint, int valueCheck)
     {
@@ -66,7 +93,7 @@ public class EnemySpawner : MonoBehaviour
             enemyInstances = 0;
         }
     }
-    IEnumerator spawnEnemyA ()
+    IEnumerator spawnEnemyA()
     {
         SpawnEnemy(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], new Vector3(Random.Range(-spawnDistanceX, spawnDistanceX), 0, Random.Range(-spawnDistanceZ, spawnDistanceZ)));
         yield return new WaitForSeconds(spawnInterval[0]);

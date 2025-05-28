@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5235798198785473838}
   m_Layer: 0
   m_Name: Enemy Worm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  health: 0
+  health: 5
   SpeedPattern:
     serializedVersion: 2
     m_Curve:
@@ -114,10 +114,14 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   walkingSpeed: 8
-  deathFxPrefabs: []
+  deathFxPrefabs:
+  - {fileID: 122926365620279662, guid: 9860744438ce58e4a8eab402060bb13d, type: 3}
+  bulletHitFxPrefab: {fileID: 8124042175084613956, guid: dd51e6f8ff34aa146af347ed7660ee43, type: 3}
+  ragdoll: {fileID: 5285511971521484007, guid: be42f909c3d5c09c08e301de6f97ad69, type: 3}
   animator: {fileID: 417612850225488670}
   walkAnimName: Walk
   pushButtonAnimname: Click
+  buttonPressTime: 1
 --- !u!65 &5235798198785473838
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -137,8 +141,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.8755407, z: 10.817276}
-  m_Center: {x: 0, y: 0.98667574, z: 0.13998699}
+  m_Size: {x: 3, y: 3, z: 15}
+  m_Center: {x: 0, y: 1.5, z: 0.13998699}
 --- !u!1001 &4620551701957897623
 PrefabInstance:
   m_ObjectHideFlags: 0

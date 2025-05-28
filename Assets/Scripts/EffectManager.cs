@@ -10,7 +10,6 @@ using Random = UnityEngine.Random;
 public class EffectManager : Singleton<EffectManager>
 {
     [SerializeField] private Volume volume;
-    [SerializeField] private GameCamera gameCamera;
 
     [Header("GVignette Pulse")]
     [SerializeField] private AnimationCurve aggressivePulseCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
@@ -20,6 +19,7 @@ public class EffectManager : Singleton<EffectManager>
 
     private bool isPlayingVignetteEffect = false;
     private Vignette vignette;
+    GameCamera gameCamera;
 
 
     [SerializeField] private List<ScreenShakeInstance> activeScreenShakes = new List<ScreenShakeInstance>();
@@ -45,6 +45,11 @@ public class EffectManager : Singleton<EffectManager>
         vignette.color.overrideState = true;
         vignette.intensity.overrideState = true;
         vignette.smoothness.overrideState = true;
+    }
+
+    private void Start()
+    {
+        gameCamera = GameCamera.Instance;
     }
 
     private void Update()
