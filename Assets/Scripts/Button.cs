@@ -8,6 +8,10 @@ public class Button : MonoBehaviour
     [SerializeField] GameObject buttonPresser;
     [SerializeField] GameObject glassDome;
 
+    [SerializeField] AudioSource CalmMusic;
+    [SerializeField] AudioSource HyperMuic;
+    [SerializeField] AudioSource ButtonLidPlopp;
+
     [SerializeField] GameObject Explosion;
 
     [SerializeField] float[] buttonHeightPos;
@@ -55,6 +59,7 @@ public class Button : MonoBehaviour
     {
         glassDome.GetComponent<Rigidbody>().isKinematic = false;
         glassDome.GetComponent<Rigidbody>().linearVelocity = new Vector3(Random.Range(10, 15), Random.Range(30, 40), Random.Range(-5, 5));
+        ButtonLidPlopp.PlayOneShot(ButtonLidPlopp.clip);
         lidPopped = true;
     }
     void Gravity()
@@ -72,8 +77,12 @@ public class Button : MonoBehaviour
         {
             blinkTimer += Time.deltaTime;
 
+
             if (currentStage == 2 && blinkTimer > blinkInterval)
-            {
+            {  
+                CalmMusic.Stop();
+                HyperMuic.Play();
+
                 currentStage++;
 
                 UpdateUI();
@@ -83,6 +92,8 @@ public class Button : MonoBehaviour
 
             if (currentStage >= 3 && blinkTimer > blinkInterval)
             {
+
+
                 currentStage = 2;
                 UpdateUI();
 

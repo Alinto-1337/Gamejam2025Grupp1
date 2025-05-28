@@ -30,7 +30,7 @@ public class EnemieBehavior : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
     }
-    void Start()
+    void OnEnable()
     {
         if (animator == null) Debug.LogError($"No animator assigned in enemy script, {name}");
 
