@@ -1,3 +1,5 @@
+using System.Collections;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -29,6 +31,8 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
     bool isAiming = false;
     bool isWalking = false;
 
+    bool frozen;
+
 
 
     MyInputManager.PlayerActions playerActions;
@@ -51,7 +55,7 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (!GameManager.Instance.gameStarted) { return; }
+        if (!GameManager.Instance.gameStarted || frozen) { return; }
         input = context.ReadValue<Vector2>();
     }
 
@@ -137,5 +141,22 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
     public void OnAim(InputAction.CallbackContext context)
     {
         isAiming = context.ReadValueAsButton();
+    }
+
+    public void StartFreeze(float time)
+    {
+        StartCoroutine(Freeze(time));
+    }
+
+    IEnumerator Freeze(float time)
+    {
+        frozen = true;
+        input = Vector2.zero;
+        velocity = Vector3.zero;
+        vel = Vector3.zero;
+
+        yield return new WaitForSeconds(time);
+
+        frozen = false;
     }
 }
