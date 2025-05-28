@@ -2205,6 +2205,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1170454863376840990, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d73cd65c463a634aa4542155783ccdf, type: 2}
     - target: {fileID: 2774295865099217897, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
       propertyPath: m_Name
       value: Button
