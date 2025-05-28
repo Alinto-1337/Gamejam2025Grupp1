@@ -77,7 +77,10 @@ public class Button : MonoBehaviour
 
 
             if (currentStage == 2 && blinkTimer > blinkInterval)
-            {
+            {  
+                CalmMusic.Stop();
+                HyperMuic.Play();
+
                 currentStage++;
 
                 UpdateUI();
@@ -87,8 +90,7 @@ public class Button : MonoBehaviour
 
             if (currentStage >= 3 && blinkTimer > blinkInterval)
             {
-                CalmMusic.Stop();
-                HyperMuic.Play();
+
 
                 currentStage = 2;
                 UpdateUI();
