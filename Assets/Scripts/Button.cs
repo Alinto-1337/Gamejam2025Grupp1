@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Button : MonoBehaviour
@@ -39,7 +40,7 @@ public class Button : MonoBehaviour
 
         if (currentStage > 1)
         {
-            Instantiate(Explosion, transform.position, Quaternion.identity);
+            SceneManager.LoadScene(1);
             return;
         }
 
