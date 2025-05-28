@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject button;
+    [SerializeField] GameObject player;
     [SerializeField] GameObject[] enemyPrefabs;
     [SerializeField] GameObject[] frozenStartEnemies;
 
@@ -81,7 +82,14 @@ public class EnemySpawner : MonoBehaviour
         spawnPoint.z = button.transform.position.z + spawning.y;
         spawnPoint *= spawnDistance;
 
-        Instantiate(enemyPrefab, spawnPoint, Quaternion.identity).GetComponent<EnemieBehavior>().SetTarget(button.transform);
+        if (enemyPrefab == enemyPrefabs[2])
+        {
+            Instantiate(enemyPrefab, spawnPoint, Quaternion.identity).GetComponent<BombEnemyBehaviour>().SetTarget(player.transform);
+        }
+        else
+        {
+            Instantiate(enemyPrefab, spawnPoint, Quaternion.identity).GetComponent<EnemieBehavior>().SetTarget(button.transform);
+        }
     }
 
     void HandleEnemyATimer()
