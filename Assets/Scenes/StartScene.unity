@@ -2358,6 +2358,18 @@ PrefabInstance:
       value: Button
       objectReference: {fileID: 0}
     - target: {fileID: 3798106269262970203, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1262318220}
+    - target: {fileID: 3798106269262970203, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
+      propertyPath: enemyPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798106269262970203, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
+      propertyPath: 'enemyPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 32023526588401860, guid: 2ce54f9b562f9204c81cc4a58b66587e, type: 3}
+    - target: {fileID: 3798106269262970203, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
       propertyPath: 'spawnInterval.Array.data[0]'
       value: 1
       objectReference: {fileID: 0}
@@ -2609,6 +2621,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1262318220 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5576224923517027895, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+  m_PrefabInstance: {fileID: 1777991375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1289173291
 PrefabInstance:
   m_ObjectHideFlags: 0
