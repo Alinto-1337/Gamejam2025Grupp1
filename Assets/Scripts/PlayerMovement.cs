@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
     bool isWalking = false;
 
 
+
     MyInputManager.PlayerActions playerActions;
 
     Vector2 moveDirX = new Vector2(Mathf.Sqrt(2), -Mathf.Sqrt(2));
@@ -40,7 +41,6 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
         playerActions = new MyInputManager().Player;
         playerActions.Enable();
         playerActions.SetCallbacks(this);
-
         source = GetComponent<AudioSource>();
 
         if (animator != null)
@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
 
         velocity = Vector3.SmoothDamp(velocity, moveDir, ref vel, movementSmoothing);
 
-        transform.position += velocity * movementSpeed * Time.deltaTime;
+       transform.position += velocity * movementSpeed * Time.deltaTime;
         
         bool wasWalking = isWalking;
         isWalking = velocity.magnitude > 0.1f;
