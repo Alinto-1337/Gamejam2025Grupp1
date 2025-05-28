@@ -81,6 +81,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9bbabf446a7e85a4c9a4b81aba7ff62a, type: 3}
   - {fileID: 8300000, guid: 35d91d34b3699df4a9729cf82cefc13f, type: 3}
   - {fileID: 8300000, guid: 38f08d7df83714e4880407cc5eb27758, type: 3}
+  animator: {fileID: 97906334943619790}
+  walkAnimName: Walk
+  idleAnimName: Idle
 --- !u!114 &518967823147205272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +105,7 @@ MonoBehaviour:
   ammoIconAnimator: {fileID: 0}
   reloadTime: 1.9
   MuzzleFlash: {fileID: 5396884163556358352, guid: 385c80cd354c71e41bf7a829319b6a8e, type: 3}
+  casingPrefab: {fileID: 3832910716477295604, guid: 08b6577d4d4ebd144a27897ae5052bc2, type: 3}
   bass: {fileID: 8300000, guid: 891f78d6c5241ee4e904d13a3d2b4f28, type: 3}
   fire:
   - {fileID: 8300000, guid: cfbdc25594c007f4b818abb87dc4b160, type: 3}
