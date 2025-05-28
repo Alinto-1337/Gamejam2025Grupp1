@@ -48,20 +48,19 @@ public class GameManager : Singleton<GameManager>
         var allObjects = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
         foreach (var obj in allObjects)
         {
-            if (obj.scene.name == null || obj.scene.name == "")
-            {
-                Destroy(obj);
-            }
+            Destroy(obj);
         }
 
-        Invoke(nameof(ReloadScene), 0.1f);
+        Destroy(gameObject);
+        gameObject.SetActive(false);
+        Instance = null;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         gameStarted = false;
     }
 
     void ReloadScene()
     {
-
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        
     }
     
 

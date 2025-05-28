@@ -18,6 +18,7 @@ public class BombEnemyBehaviour : MonoBehaviour
     [Header("Animations")]
     [SerializeField] Animator animator;
     [SerializeField] string walkAnimName;
+    [SerializeField] string jumpAnimName;
 
     bool active = true;
 
@@ -52,7 +53,9 @@ public class BombEnemyBehaviour : MonoBehaviour
 
             transform.LookAt(target.position);
 
-            Die();
+            animator.CrossFade(jumpAnimName, 0.1f);
+
+            Invoke(nameof(Die), 0.2f);
         }
     }
 
