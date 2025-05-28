@@ -23,11 +23,12 @@ public class PauseManager : MonoBehaviour
 
     public void TogglePause()
     {
-        Time.timeScale = 0f;
+        
         bool isPaused = PauseMenuAnimator.gameObject.activeInHierarchy;
+        Time.timeScale = isPaused ? 1f : 0f;
         PauseMenuAnimator.gameObject.SetActive(!isPaused);
 
         PauseMenuAnimator.Play(isPaused ? disappearAnimName : appearAnimName);
-        Time.timeScale = standardTimeScale;
+
     }
 }
