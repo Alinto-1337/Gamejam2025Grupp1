@@ -21,6 +21,7 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
 
     [Header("Audio")]
     [SerializeField] AudioClip bass;
+    [SerializeField] AudioClip reload;
     [SerializeField] AudioClip[] fire;
     [SerializeField] AudioClip[] mech;
 
@@ -119,6 +120,7 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
     {
         reloading = true;
         ammoIconAnimator.CrossFade("ReloadSpin", 0.1f);
+        source.PlayOneShot(reload);
 
         yield return new WaitForSeconds(reloadTime);
 
