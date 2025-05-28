@@ -2359,7 +2359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3798106269262970203, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
       propertyPath: 'spawnInterval.Array.data[0]'
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3798106269262970203, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
       propertyPath: frozenStartEnemies.Array.size
