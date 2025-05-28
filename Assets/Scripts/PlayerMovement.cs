@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
     bool isAiming = false;
     bool isWalking = false;
 
+    Rigidbody rb;
+
 
     MyInputManager.PlayerActions playerActions;
 
@@ -40,6 +42,8 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
         playerActions = new MyInputManager().Player;
         playerActions.Enable();
         playerActions.SetCallbacks(this);
+
+        rb = GetComponent<Rigidbody>();
 
         source = GetComponent<AudioSource>();
 
@@ -79,7 +83,7 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
 
         velocity = Vector3.SmoothDamp(velocity, moveDir, ref vel, movementSmoothing);
 
-        transform.position += velocity * movementSpeed * Time.deltaTime;
+        rb.linearVelocity = velocity * movementSpeed;
         
         bool wasWalking = isWalking;
         isWalking = velocity.magnitude > 0.1f;
