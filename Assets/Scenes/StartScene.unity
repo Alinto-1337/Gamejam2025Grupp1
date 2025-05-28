@@ -3100,6 +3100,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 518967823147205272, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+      propertyPath: reload
+      value: 
+      objectReference: {fileID: 8300000, guid: ee1a8c98ff74a8341a7fcf0cf087820a, type: 3}
+    - target: {fileID: 518967823147205272, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 861698793}
