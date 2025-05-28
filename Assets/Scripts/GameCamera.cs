@@ -1,7 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameCamera : MonoBehaviour
+public class GameCamera : Singleton<GameCamera>
 {
     [SerializeField] private List<Transform> targets = new List<Transform>();
 
@@ -11,9 +12,10 @@ public class GameCamera : MonoBehaviour
     [SerializeField] private Vector3 offset = new Vector3(0, 0, 0);
 
 
-
     private void LateUpdate()
-    {
+    {   
+        if (GameManager.Instance == null || !GameManager.Instance.gameStarted) return;
+        
         if (targets == null || targets.Count == 0)
             return;
 
