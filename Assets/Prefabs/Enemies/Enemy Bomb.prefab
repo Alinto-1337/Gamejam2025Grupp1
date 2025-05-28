@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 433244352128742306}
   - component: {fileID: 7896433112896434763}
   - component: {fileID: 8649456849979521193}
+  - component: {fileID: 8346509001703120674}
   m_Layer: 0
   m_Name: Enemy Bomb
   m_TagString: Untagged
@@ -102,6 +103,27 @@ MonoBehaviour:
   animator: {fileID: 930983762001789333}
   walkAnimName: BombWalk
   jumpAnimName: BombJump
+--- !u!65 &8346509001703120674
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583866290740767915}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1001 &1892492649369302288
 PrefabInstance:
   m_ObjectHideFlags: 0
