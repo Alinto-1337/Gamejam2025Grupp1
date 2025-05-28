@@ -272,3 +272,4 @@ MonoBehaviour:
   lifetime: 5
   bulletDieDelay: 0
   knockbackForce: 3
+  defaultHitFXPrefab: {fileID: 8124042175084613956, guid: dd51e6f8ff34aa146af347ed7660ee43, type: 3}

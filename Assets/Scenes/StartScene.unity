@@ -549,7 +549,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: edbad5d3d760a734d9976d7da693d5dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5bc6bcf84e585314ab6acd642e41a83f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1247,9 +1247,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4457180870687489809, guid: 4c127f4314157184fb575881b02d6381, type: 3}
-      insertIndex: 4
-      addedObject: {fileID: 607504463}
     - targetCorrespondingSourceObject: {fileID: 9108449051422624940, guid: 4c127f4314157184fb575881b02d6381, type: 3}
       insertIndex: -1
       addedObject: {fileID: 607504461}
@@ -1270,11 +1267,6 @@ GameObject:
 --- !u!1 &607504456 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9108449051422624940, guid: 4c127f4314157184fb575881b02d6381, type: 3}
-  m_PrefabInstance: {fileID: 607504453}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &607504458 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4457180870687489809, guid: 4c127f4314157184fb575881b02d6381, type: 3}
   m_PrefabInstance: {fileID: 607504453}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &607504460
@@ -1321,39 +1313,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &607504463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607504458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls: []
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-          m_MethodName: ExitHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1001 &653940923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2313,6 +2272,7 @@ MonoBehaviour:
   onGameStart:
     m_PersistentCalls:
       m_Calls: []
+  timelineMainMenuIdle: {fileID: 0}
   timelineToPlayOnStart: {fileID: 11400000, guid: 2dda291ecb8cbb00ea0037f81633e602, type: 2}
 --- !u!4 &1117696215
 Transform:
