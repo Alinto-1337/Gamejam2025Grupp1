@@ -29,11 +29,21 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             EnemieBehavior enemyBehavior = other.gameObject.GetComponent<EnemieBehavior>();
-            enemyBehavior.ApplyDamage(damage);
-            Instantiate(enemyBehavior.bulletHitFxPrefab, other.GetContact(0).point, Quaternion.identity);
-
-            Vector3 direction = (other.transform.position - transform.position).normalized;
-            enemyBehavior.ApplyKnockBack(direction, knockbackForce);
+            if (enemyBehavior == null)
+            {
+                BombEnemyBehaviour bombEnemyBehavior = other.gameObject.GetComponent<BombEnemyBehaviour>();
+                bombEnemyBehavior.ApplyDamage(damage);
+                Instantiate(bombEnemyBehavior.bulletHitFxPrefab, other.GetContact(0).point, Quaternion.identity);
+                Vector3 direction = (other.transform.position - transform.position).normalized;
+                bombEnemyBehavior.ApplyKnockBack(direction, knockbackForce);
+            }
+            else
+            {
+                enemyBehavior.ApplyDamage(damage);
+                Instantiate(enemyBehavior.bulletHitFxPrefab, other.GetContact(0).point, Quaternion.identity);
+                Vector3 direction = (other.transform.position - transform.position).normalized;
+                enemyBehavior.ApplyKnockBack(direction, knockbackForce);
+            }
         }
         else
         {
