@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour, MyInputManager.IPlayerActions
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (!GameManager.Instance.gameStarted) { return; }
         input = context.ReadValue<Vector2>();
     }
 
