@@ -2313,8 +2313,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 494, y: -88}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 600, y: -90}
+  m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1112114253
 MonoBehaviour:
@@ -2338,8 +2338,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Score:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: afd0c7498701c74b19de1b00a6abc54d, type: 2}
+  m_sharedMaterial: {fileID: 8598253203293210563, guid: afd0c7498701c74b19de1b00a6abc54d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2575,6 +2575,10 @@ PrefabInstance:
       propertyPath: HyperMuic
       value: 
       objectReference: {fileID: 2081191109}
+    - target: {fileID: 4604870156518423235, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1112114253}
     - target: {fileID: 4604870156518423235, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
       propertyPath: buttonImage
       value: 
@@ -3250,7 +3254,7 @@ PrefabInstance:
     - target: {fileID: 518967823147205272, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
       propertyPath: reload
       value: 
-      objectReference: {fileID: 8300000, guid: ee1a8c98ff74a8341a7fcf0cf087820a, type: 3}
+      objectReference: {fileID: 8300000, guid: ed21fe3eeee21c14487066297b8c618a, type: 3}
     - target: {fileID: 518967823147205272, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
       propertyPath: ammoText
       value: 

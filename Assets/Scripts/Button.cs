@@ -54,7 +54,7 @@ public class Button : MonoBehaviour
         scoreText.text = "Score: " + score.ToString();
     }
 
-    void AddToScore()
+    public void AddToScore()
     {
         score += 10;
         UpdateUI();

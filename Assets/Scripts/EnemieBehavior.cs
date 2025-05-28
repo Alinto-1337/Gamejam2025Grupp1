@@ -25,18 +25,18 @@ public class EnemieBehavior : MonoBehaviour
     bool active = true;
 
     NavMeshAgent agent;
+    Button button;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        button = FindAnyObjectByType<Button>();
     }
     void OnEnable()
     {
         if (animator == null) Debug.LogError($"No animator assigned in enemy script, {name}");
 
         animator.CrossFade(walkAnimName, 0.2f);
-
-
     }
 
     void Update()
@@ -105,6 +105,7 @@ public class EnemieBehavior : MonoBehaviour
             Instantiate(_fx, transform.position, transform.rotation);
         }
         Destroy(gameObject);
+        button.AddToScore();
         gameObject.SetActive(false);
     }
 
