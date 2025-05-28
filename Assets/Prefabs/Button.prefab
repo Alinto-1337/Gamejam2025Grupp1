@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4919525222659027902}
   - component: {fileID: 3798106269262970203}
   - component: {fileID: 4604870156518423235}
+  - component: {fileID: 1692998057762904796}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -52,6 +53,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 32023526588401860, guid: 3523adc603d59824f8fe0fc50dbd3741, type: 3}
   - {fileID: 32023526588401860, guid: 77e56d0d4a72a12478771d11b0330f70, type: 3}
+  frozenStartEnemies: []
   spawnDistance: 100
   spawnDistanceX: 0
   spawnDistanceZ: 0
@@ -79,6 +81,8 @@ MonoBehaviour:
   - {fileID: -783813683, guid: d2654e494e707e74b8005af474dceee7, type: 3}
   buttonPresser: {fileID: 636196624398980645}
   glassDome: {fileID: 6962927878790425906}
+  CalmMusic: {fileID: 0}
+  HyperMuic: {fileID: 0}
   Explosion: {fileID: 4832507291048919984, guid: 9bcd99f9454c1504b90d9bdebcf850b4, type: 3}
   buttonHeightPos:
   - 0.01
@@ -86,6 +90,27 @@ MonoBehaviour:
   - 0
   blinkInterval: 0.5
   gravityStrength: 60
+--- !u!65 &1692998057762904796
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2774295865099217897}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8, y: 4, z: 8}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &3131552180929947303
 GameObject:
   m_ObjectHideFlags: 0
