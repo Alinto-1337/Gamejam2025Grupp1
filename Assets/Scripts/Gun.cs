@@ -37,6 +37,8 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
 
     AudioSource source;
 
+    bool frozen;
+
     private void Start()
     {
         gunActions = new MyInputManager().Gun;
@@ -52,7 +54,8 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        if (!GameManager.Instance.gameStarted) return;
+        if (!GameManager.Instance.gameStarted || frozen) return;
+
         if (context.started)
         {
             shooting = true;
@@ -138,5 +141,19 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
         {
             
         }
+    }
+
+    public void StartFreeze(float time)
+    {
+        StartCoroutine(Freeze(time));
+    }
+
+    IEnumerator Freeze(float time)
+    {
+        frozen = true;
+
+        yield return new WaitForSeconds(time);
+
+        frozen = false;
     }
 }

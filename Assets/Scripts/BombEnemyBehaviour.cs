@@ -55,6 +55,7 @@ public class BombEnemyBehaviour : MonoBehaviour
 
             animator.CrossFade(jumpAnimName, 0.1f);
 
+            Invoke(nameof(Freeze), 0.2f);
             Invoke(nameof(Die), 0.2f);
         }
     }
@@ -82,6 +83,12 @@ public class BombEnemyBehaviour : MonoBehaviour
         {
             Die();
         }
+    }
+
+    void Freeze()
+    {
+        target.GetComponent<PlayerMovement>().StartFreeze(1);
+        target.GetComponent<Gun>().StartFreeze(1);
     }
 
     private void Die()
