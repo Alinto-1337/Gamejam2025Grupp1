@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Playables;
+using TMPro;
 
 
 
@@ -13,6 +14,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] UnityEvent onGameStart;
     [SerializeField] PlayableAsset timelineMainMenuIdle;
     [SerializeField] PlayableAsset timelineToPlayOnStart;
+
+    [Header("PlayButton")]
+    [SerializeField] TextMeshProUGUI playButtonText;
 
 
     private void Start()
@@ -56,6 +60,16 @@ public class GameManager : Singleton<GameManager>
         Instance = null;
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         gameStarted = false;
+    }
+
+    public void CorrectTextPosition()
+    {
+        playButtonText.rectTransform.anchoredPosition = new Vector2(25, 20);
+    }
+
+    public void ReturnTextPosition()
+    {
+        playButtonText.rectTransform.anchoredPosition = new Vector2(0, 0);
     }
 
     void ReloadScene()
