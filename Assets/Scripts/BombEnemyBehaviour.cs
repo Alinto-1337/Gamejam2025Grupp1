@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemieBehavior : MonoBehaviour
+public class BombEnemyBehaviour : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] int health;
@@ -14,23 +14,18 @@ public class EnemieBehavior : MonoBehaviour
     [Header("Effects")]
     [SerializeField] List<GameObject> deathFxPrefabs;
     [SerializeField] public GameObject bulletHitFxPrefab;
-    [SerializeField] GameObject ragdoll;
 
     [Header("Animations")]
     [SerializeField] Animator animator;
     [SerializeField] string walkAnimName;
-    [SerializeField] string pushButtonAnimname;
-    [SerializeField] float buttonPressTime;
 
     bool active = true;
 
     NavMeshAgent agent;
-    Button button;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        button = FindAnyObjectByType<Button>();
     }
     void OnEnable()
     {
@@ -57,19 +52,8 @@ public class EnemieBehavior : MonoBehaviour
 
             transform.LookAt(target.position);
 
-            animator.CrossFade(pushButtonAnimname, 0.1f);
-
-            Invoke(nameof(OnButtonPress), buttonPressTime);
+            Die();
         }
-    }
-
-    void OnButtonPress()
-    {
-        target.GetComponent<Button>().TakeDamage();
-
-        transform.position = target.position + Vector3.up * 2;
-
-        Die();
     }
 
     public void ApplyKnockBack(Vector3 direction, float force)
@@ -88,12 +72,11 @@ public class EnemieBehavior : MonoBehaviour
     {
         if (_dmg <= 0) return;
 
-        
+
 
         health -= _dmg;
         if (health <= 0)
         {
-            SpawnRagdoll();
             Die();
         }
     }
@@ -105,12 +88,6 @@ public class EnemieBehavior : MonoBehaviour
             Instantiate(_fx, transform.position, transform.rotation);
         }
         Destroy(gameObject);
-        button.AddToScore();
         gameObject.SetActive(false);
-    }
-
-    void SpawnRagdoll()
-    {
-        Instantiate(ragdoll, transform.position, transform.rotation).GetComponentInChildren<Rigidbody>().linearVelocity += new Vector3(Random.Range(-5,5), 10, Random.Range(-5,5));
     }
 }
