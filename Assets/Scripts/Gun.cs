@@ -131,4 +131,12 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
 
         reloading = false;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (CompareTag("Power"))
+        {
+            
+        }
+    }
 }
