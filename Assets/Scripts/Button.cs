@@ -10,6 +10,7 @@ public class Button : MonoBehaviour
 
     [SerializeField] AudioSource CalmMusic;
     [SerializeField] AudioSource HyperMuic;
+    [SerializeField] AudioSource ButtonLidPlopp;
 
     [SerializeField] GameObject Explosion;
 
@@ -58,6 +59,7 @@ public class Button : MonoBehaviour
     {
         glassDome.GetComponent<Rigidbody>().isKinematic = false;
         glassDome.GetComponent<Rigidbody>().linearVelocity = new Vector3(Random.Range(10, 15), Random.Range(30, 40), Random.Range(-5, 5));
+        ButtonLidPlopp.PlayOneShot(ButtonLidPlopp.clip);
         lidPopped = true;
     }
     void Gravity()
