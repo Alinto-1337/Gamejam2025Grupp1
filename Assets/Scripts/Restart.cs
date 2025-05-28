@@ -13,6 +13,6 @@ public class Restart : MonoBehaviour
     {
         yield return new WaitForSeconds(8);
 
-        SceneManager.LoadScene(0);
+        GameManager.Instance.RestartGame();
     }
 }
