@@ -26,6 +26,12 @@ public class GameManager : Singleton<GameManager>
 
         GetComponent<PlayableDirector>().playableAsset = timelineToPlayOnStart;
         GetComponent<PlayableDirector>().Play();
+        Invoke(nameof(DisablePlayableDirector), 5f);
+    }
+
+    void DisablePlayableDirector()
+    {
+        GetComponent<PlayableDirector>().enabled = false;
     }
 
     public void QuitGame()

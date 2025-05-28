@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
         {
             foreach (GameObject enemy in frozenStartEnemies)
             {
-                enemy.SetActive(false);
+                enemy.SetActive(true);
             }
         }
     }
