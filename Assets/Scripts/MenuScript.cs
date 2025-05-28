@@ -15,26 +15,13 @@ public class MenuScript : MonoBehaviour
 
     public void Play()
     {
-        animators[0].SetBool("PlayIsPressed", true);
-        animators[1].SetBool("PlayIsPressed", true);
-        animators[2].SetBool("PlayIsPressed", true);
+        animators[0].SetBool("IsPlaying", false);
         inMenu = false;
-    }
-
-    public void HoveringPlay()
-    {
-        animators[1].SetBool("IsHovering", true);
-    }
-
-    public void HoveringQuit()
-    {
-        animators[2].SetBool("IsHovering", true);
     }
 
     public void Quit()
     {
-        Application.Quit();
-        animators[2].SetTrigger("IsClicked");
+        Application.Quit();        
     }    
 
     private void Update()
@@ -58,10 +45,7 @@ public class MenuScript : MonoBehaviour
     }
 
     public void Exit()
-    {
-        animators[0].SetBool("PlayIsPressed", false);
-        animators[1].SetBool("PlayIsPressed", false);
-        animators[2].SetBool("PlayIsPressed", false);
+    {        
         animators[3].SetBool("ESCisPressed", false);
         animators[6].SetTrigger("IsClicked");
 
@@ -70,34 +54,7 @@ public class MenuScript : MonoBehaviour
 
     public void Resume()
     {
-        animators[3].SetBool("ESCisPressed", false);
-        animators[5].SetTrigger("IsClicked");
+        animators[3].SetBool("ESCisPressed", false);        
         isPaused = false;
     }
-
-    
-
-    public void HoverResume()
-    {
-        animators[5].SetBool("isHovering", true);
-    }
-
-    public void HoverRestart()
-    {
-        animators[4].SetBool("isHovering", true);
-    }
-
-    public void HoverExit()
-    {
-        animators[6].SetBool("isHovering", true);
-    }
-
-    public void ExitHover()
-    {
-        animators[1].SetBool("IsHovering", false);
-        animators[2].SetBool("IsHovering", false);
-        animators[4].SetBool("isHovering", false);
-        animators[5].SetBool("isHovering", false);
-        animators[6].SetBool("isHovering", false);
-    }    
 }
