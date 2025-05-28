@@ -51,6 +51,7 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
 
     public void OnShoot(InputAction.CallbackContext context)
     {
+        if (!GameManager.Instance.gameStarted) return;
         if (context.started)
         {
             shooting = true;

@@ -2362,6 +2362,8 @@ PlayableDirector:
     value: {fileID: 204710534}
   - key: {fileID: 2746060858708798654, guid: aedf6eb2170b0a8509ddad8ce76411a8, type: 2}
     value: {fileID: 1452080627}
+  - key: {fileID: 8215341331539604943, guid: 2dda291ecb8cbb00ea0037f81633e602, type: 2}
+    value: {fileID: 1756765961}
   m_ExposedReferences:
     m_References: []
 --- !u!1001 &1130614811
@@ -3068,6 +3070,10 @@ PrefabInstance:
       propertyPath: ammoIconAnimator
       value: 
       objectReference: {fileID: 445115809}
+    - target: {fileID: 3572486509823155529, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+      propertyPath: footsteps
+      value: 
+      objectReference: {fileID: 2662682367288202499, guid: e23a6f0afb070d04e8f0c2f8039b7c52, type: 3}
     - target: {fileID: 5576224923517027895, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
       propertyPath: m_Name
       value: Player
