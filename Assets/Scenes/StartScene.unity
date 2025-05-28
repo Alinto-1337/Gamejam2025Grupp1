@@ -2220,7 +2220,7 @@ PrefabInstance:
     - target: {fileID: 3798106269262970203, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
       propertyPath: 'enemyPrefabs.Array.data[2]'
       value: 
-      objectReference: {fileID: 32023526588401860, guid: 2ce54f9b562f9204c81cc4a58b66587e, type: 3}
+      objectReference: {fileID: 5583866290740767915, guid: 392d945922307ba44a0e261e02cc37ea, type: 3}
     - target: {fileID: 3798106269262970203, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
       propertyPath: 'spawnInterval.Array.data[0]'
       value: 4
