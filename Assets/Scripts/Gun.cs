@@ -66,6 +66,14 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
         }
     }
 
+    public void OnReload(InputAction.CallbackContext context)
+    {
+        if (ammo < maxAmmo)
+        {
+            StartCoroutine(Reload());
+        }
+    }
+
     private void Update()
     {
         shootTimer += Time.deltaTime;
