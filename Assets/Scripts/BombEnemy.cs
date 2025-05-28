@@ -2,9 +2,15 @@ using UnityEngine;
 
 public class BombEnemy : MonoBehaviour
 {
-    GameObject target;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
 
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float explosionRadius = 3f;
-
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class Button : MonoBehaviour
     [SerializeField] Sprite[] buttonIconStages;
     [SerializeField] GameObject buttonPresser;
     [SerializeField] GameObject glassDome;
+    [SerializeField] TextMeshProUGUI scoreText;
 
     [SerializeField] AudioSource CalmMusic;
     [SerializeField] AudioSource HyperMuic;
@@ -17,6 +19,7 @@ public class Button : MonoBehaviour
     [SerializeField] float[] buttonHeightPos;
     [SerializeField] float blinkInterval;
     [SerializeField] float gravityStrength;
+    [SerializeField] float score;
 
     int currentStage = 0;
 
@@ -48,6 +51,13 @@ public class Button : MonoBehaviour
     void UpdateUI()
     {
         buttonImage.sprite = buttonIconStages[currentStage];
+        scoreText.text = "Score: " + score.ToString();
+    }
+
+    public void AddToScore()
+    {
+        score += 10;
+        UpdateUI();
     }
 
     void UpdateButtonPosition()

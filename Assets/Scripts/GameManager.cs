@@ -11,12 +11,15 @@ public class GameManager : Singleton<GameManager>
     public bool gameStarted = false;
 
     [SerializeField] UnityEvent onGameStart;
+    [SerializeField] PlayableAsset timelineMainMenuIdle;
     [SerializeField] PlayableAsset timelineToPlayOnStart;
 
 
     private void Start()
     {
-
+        // GetComponent<PlayableDirector>().enabled = true;
+        // GetComponent<PlayableDirector>().playableAsset = timelineMainMenuIdle;
+        // GetComponent<PlayableDirector>().Play();
     }
 
     public void StartGame()
@@ -42,7 +45,24 @@ public class GameManager : Singleton<GameManager>
 
     public void RestartGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        var allObjects = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
+        foreach (var obj in allObjects)
+        {
+            if (obj.scene.name == null || obj.scene.name == "")
+            {
+                Destroy(obj);
+            }
+        }
+
+        Invoke(nameof(ReloadScene), 0.1f);
         gameStarted = false;
     }
+
+    void ReloadScene()
+    {
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
+    
+
 }
