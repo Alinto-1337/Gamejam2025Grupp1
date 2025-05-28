@@ -2230,22 +2230,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1974854052199110540, guid: 259e220280c383847bbabcac690c44ed, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3803233946137057748, guid: 259e220280c383847bbabcac690c44ed, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3803233946137057748, guid: 259e220280c383847bbabcac690c44ed, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3803233946137057748, guid: 259e220280c383847bbabcac690c44ed, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3803233946137057748, guid: 259e220280c383847bbabcac690c44ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: -100
@@ -2286,21 +2270,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3803233946137057748, guid: 259e220280c383847bbabcac690c44ed, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8406657170386240848, guid: 259e220280c383847bbabcac690c44ed, type: 3}
       propertyPath: m_Name
       value: Map 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406657170386240848, guid: 259e220280c383847bbabcac690c44ed, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8781441410980390703, guid: 259e220280c383847bbabcac690c44ed, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2409,7 +2381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3798106269262970203, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
       propertyPath: 'spawnInterval.Array.data[0]'
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3798106269262970203, guid: b05cf491f22e40f43b6cff2eee030bed, type: 3}
       propertyPath: frozenStartEnemies.Array.size
@@ -2642,7 +2614,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.5
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 2fa156ca3e65e1046a8d72cfee5cea2c, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 0f583277f4269384d8cbcfcb3d094858, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1249349091
 Transform:
@@ -3121,6 +3093,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 518967823147205272, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
+      propertyPath: reload
+      value: 
+      objectReference: {fileID: 8300000, guid: ee1a8c98ff74a8341a7fcf0cf087820a, type: 3}
     - target: {fileID: 518967823147205272, guid: 8a9b0adf68a11b54c91789019a2fd65b, type: 3}
       propertyPath: ammoText
       value: 
