@@ -68,7 +68,7 @@ public class Gun : MonoBehaviour, MyInputManager.IGunActions
 
     public void OnReload(InputAction.CallbackContext context)
     {
-        if (ammo < maxAmmo)
+        if (ammo < maxAmmo && !reloading)
         {
             StartCoroutine(Reload());
         }
