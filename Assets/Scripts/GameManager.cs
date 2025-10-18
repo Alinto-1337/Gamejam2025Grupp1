@@ -58,7 +58,7 @@ public class GameManager : Singleton<GameManager>
         Destroy(gameObject);
         gameObject.SetActive(false);
         Instance = null;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         gameStarted = false;
     }
 

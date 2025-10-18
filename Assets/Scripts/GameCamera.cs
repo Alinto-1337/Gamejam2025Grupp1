@@ -31,7 +31,7 @@ public class GameCamera : Singleton<GameCamera>
 
         Vector3 sum = Vector3.zero;
         foreach (var t in targets)
-            sum += t.position;
+            if (t != null) sum += t.position;
         return sum / targets.Count;
     }
 

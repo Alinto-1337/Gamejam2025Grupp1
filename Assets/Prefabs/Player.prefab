@@ -107,6 +107,7 @@ MonoBehaviour:
   MuzzleFlash: {fileID: 5396884163556358352, guid: 385c80cd354c71e41bf7a829319b6a8e, type: 3}
   casingPrefab: {fileID: 3832910716477295604, guid: 08b6577d4d4ebd144a27897ae5052bc2, type: 3}
   bass: {fileID: 8300000, guid: 891f78d6c5241ee4e904d13a3d2b4f28, type: 3}
+  reload: {fileID: 8300000, guid: ed21fe3eeee21c14487066297b8c618a, type: 3}
   fire:
   - {fileID: 8300000, guid: cfbdc25594c007f4b818abb87dc4b160, type: 3}
   - {fileID: 8300000, guid: afa93936d6477844ba85676ec51af691, type: 3}
